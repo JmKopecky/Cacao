@@ -1,1 +1,8 @@
-This is a test of Git Pull.
+Our submission for the Congressional App Challenge
+
+Texas District 36
+
+Contributors:
+Joseph Kopecky
+Aayush Koora
+Khyati Singh
