@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="header_color_default">#FF000000</color>
-    <color name="header_color_button">#FFFFFFFF</color>
-    <color name="content_area_background">#FFFFFFFF</color>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="header_color_default">#000000</color>
+    <color name="header_color_button">#FFFFFF</color>
+    <color name="content_area_background">#FFFFFF</color>
+    <color name="main_background">#202030</color>
+    <color name="secondary_background">#39304A</color>
+    <color name="accent_color">#DA4167</color>
+    <color name="secondary_color">#F0BCD4</color>
+    <color name="text_color">#F1DAC4</color>
+    <color name="extra_logo_brown">#9E6D47</color>
 </resources>
