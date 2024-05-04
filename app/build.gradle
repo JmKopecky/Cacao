@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'dev.prognitio.congressionalapptempname'
+    namespace 'dev.prognitio.cacao'
     compileSdk 34
 
     defaultConfig {
-        applicationId "dev.prognitio.congressionalapptempname"
+        applicationId "dev.prognitio.cacao"
         minSdk 26
         targetSdk 34
         versionCode 1
