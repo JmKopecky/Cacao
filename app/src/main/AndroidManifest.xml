@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Cacao"
         tools:targetApi="31">
         <activity
-            android:name=".PreferencesSelection"
+            android:name=".ProfileLaunch"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"
