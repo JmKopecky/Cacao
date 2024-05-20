@@ -1,4 +1,4 @@
-package dev.prognitio.cacao;
+package dev.prognitio.cacao.log;
 
 public enum LogType {
 

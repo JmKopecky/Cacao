@@ -1,4 +1,4 @@
-package dev.prognitio.cacao;
+package dev.prognitio.cacao.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import dev.prognitio.cacao.R;
+import dev.prognitio.cacao.log.LogType;
+import dev.prognitio.cacao.log.Logger;
 
 public class WelcomeActivity extends AppCompatActivity {
 
