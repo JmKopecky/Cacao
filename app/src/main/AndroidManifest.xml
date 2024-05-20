@@ -12,10 +12,13 @@
         android:theme="@style/Theme.Cacao"
         tools:targetApi="31">
         <activity
-            android:name=".ProfileLaunch"
+            android:name=".activities.PreferencesSelection"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".activities.ProfileLaunch"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

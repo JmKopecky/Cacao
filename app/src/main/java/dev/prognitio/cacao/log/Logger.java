@@ -1,4 +1,4 @@
-package dev.prognitio.cacao;
+package dev.prognitio.cacao.log;
 
 import android.util.Log;
 
