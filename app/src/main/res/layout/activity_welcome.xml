@@ -19,8 +19,9 @@
         android:fontFamily="@font/roboto_mono"
         android:radius="10dp"
         android:text="Setup"
-        android:textSize="24sp"
+        android:textColor="@color/secondary_color"
 
+        android:textSize="24sp"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

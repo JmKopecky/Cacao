@@ -24,9 +24,9 @@ public class WelcomeActivity extends AppCompatActivity {
         proceedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent switchActivityIntent = new Intent(context, DataActivity.class);
-                //startActivity(switchActivityIntent);
                 Logger.log("WelcomeActivity Button Activated", LogType.DEBUG, null);
+                Intent switchActivityIntent = new Intent(context, ProfileLaunch.class);
+                startActivity(switchActivityIntent);
             }
         });
     }
