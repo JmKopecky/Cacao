@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 
 import java.util.ArrayList;
 
+import dev.prognitio.cacao.Course;
 import dev.prognitio.cacao.R;
 
 public class CourseSetup extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class CourseSetup extends AppCompatActivity {
     ImageButton finalizeCourseDataButton;
     ImageButton addCourseButton;
 
-    //ArrayList<Courses> courses = new ArrayList<Courses>();
+    ArrayList<Course> courses = new ArrayList<Course>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,30 +42,87 @@ public class CourseSetup extends AppCompatActivity {
         finalizeCourseDataButton = findViewById(R.id.finalizeCoursesButton);
         addCourseButton = findViewById(R.id.addCourseButton);
 
+
         addCourseButton.setOnClickListener((view -> {
             String courseName = courseNameInput.getText().toString();
-            String courseSemester = courseSemesterInput.getText().toString();
-            String courseGPA = courseGPAInput.getText().toString();
-            String courseGrade = courseGradeInput.getText().toString();
+            int courseSemester = -1;
+            double courseGPA = -1;
+            double courseGrade = -1;
+            boolean noFormattingErrors = true;
 
-            courseNameInput.setText("");
-            courseSemesterInput.setText("");
-            courseGPAInput.setText("");
-            courseGradeInput.setText("");
 
-            //create a class object
+            try {
+                courseSemester = Integer.parseInt(courseSemesterInput.getText().toString());
+            } catch (Exception e) {
+                courseSemesterInput.setTextColor(getResources().getColor(R.color.red));
+                noFormattingErrors = false;
+            }
+            try {
+                courseGPA = Double.parseDouble(courseGPAInput.getText().toString());
+            } catch (Exception e) {
+                courseGPAInput.setTextColor(getResources().getColor(R.color.red));
+                noFormattingErrors = false;
+            }
+            try {
+                courseGrade = Double.parseDouble(courseGradeInput.getText().toString());
+            } catch (Exception e) {
+                courseGradeInput.setTextColor(getResources().getColor(R.color.red));
+                noFormattingErrors = false;
+            }
+
+            if (noFormattingErrors) {
+                courseNameInput.setText("");
+                courseSemesterInput.setText("");
+                courseGPAInput.setText("");
+                courseGradeInput.setText("");
+                courseSemesterInput.setTextColor(getResources().getColor(R.color.text_color));
+                courseGradeInput.setTextColor(getResources().getColor(R.color.text_color));
+                courseGPAInput.setTextColor(getResources().getColor(R.color.text_color));
+
+                Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
+                courses.add(course);
+            }
         }));
+
 
         finalizeCourseDataButton.setOnClickListener(view -> {
             String courseName = courseNameInput.getText().toString();
-            String courseSemester = courseSemesterInput.getText().toString();
-            String courseGPA = courseGPAInput.getText().toString();
-            String courseGrade = courseGradeInput.getText().toString();
+            int courseSemester = -1;
+            double courseGPA = -1;
+            double courseGrade = -1;
+            boolean noFormattingErrors = true;
 
-            //create a class object
 
-            //Intent switchActivityIntent = new Intent(context, CourseSetup.class);
-            //startActivity(switchActivityIntent);
+            try {
+                courseSemester = Integer.parseInt(courseSemesterInput.getText().toString());
+            } catch (Exception e) {
+                courseSemesterInput.setTextColor(getResources().getColor(R.color.red));
+                noFormattingErrors = false;
+            }
+            try {
+                courseGPA = Double.parseDouble(courseGPAInput.getText().toString());
+            } catch (Exception e) {
+                courseGPAInput.setTextColor(getResources().getColor(R.color.red));
+                noFormattingErrors = false;
+            }
+            try {
+                courseGrade = Double.parseDouble(courseGradeInput.getText().toString());
+            } catch (Exception e) {
+                courseGradeInput.setTextColor(getResources().getColor(R.color.red));
+                noFormattingErrors = false;
+            }
+
+            if (noFormattingErrors) {
+                Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
+                courses.add(course);
+
+                for (Course c : courses) {
+                    System.out.println(c.toString());
+                }
+
+                //Intent switchActivityIntent = new Intent(context, CourseSetup.class);
+                //startActivity(switchActivityIntent);
+            }
         });
 
 
