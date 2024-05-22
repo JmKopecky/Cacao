@@ -4,6 +4,151 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
+    android:foregroundTint="@color/accent_color"
     tools:context=".activities.CourseSetup">
 
+    <ImageButton
+        android:id="@+id/importCourseDataButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="@color/accent_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addCourseButton"
+        app:srcCompat="@drawable/baseline_cloud_download_24" />
+
+    <ImageButton
+        android:id="@+id/addCourseButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="@color/accent_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
+    <ImageButton
+        android:id="@+id/finalizeCoursesButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="@color/accent_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addCourseButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/baseline_check_circle_24" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/secondary_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/coursesetupdesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="Enter the data for a class, then press the plus button to save and add another. Alternatively, import data from GCCISD portal. "
+            android:textAlignment="center"
+            android:textColor="@color/secondary_color"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/inputClassName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/text_color"
+        android:drawableTint="@color/text_color"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:foregroundTint="@color/text_color"
+        android:hint="Course Name"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/text_color"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.18" />
+
+    <EditText
+        android:id="@+id/inputSemesterNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/text_color"
+        android:drawableTint="@color/text_color"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:foregroundTint="@color/text_color"
+        android:hint="Semester #"
+        android:inputType="number"
+        android:textColorHint="@color/text_color"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputClassName"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/inputGPAWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/text_color"
+        android:drawableTint="@color/text_color"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:foregroundTint="@color/text_color"
+        android:hint="GPA Weight"
+        android:inputType="number"
+        android:textColorHint="@color/text_color"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputSemesterNumber"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/inputGrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/text_color"
+        android:drawableTint="@color/text_color"
+        android:ems="10"
+        android:fontFamily="@font/roboto_mono"
+        android:foregroundTint="@color/text_color"
+        android:hint="Grade"
+        android:inputType="number|numberDecimal"
+        android:textColorHint="@color/text_color"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputGPAWeight"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
