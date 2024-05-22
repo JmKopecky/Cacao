@@ -62,7 +62,7 @@
         android:backgroundTint="@color/accent_color"
         android:capitalize="none"
         android:fontFamily="@font/roboto_mono"
-        android:text="Finalize"
+        android:text="Continue"
         android:textAllCaps="false"
         android:textColor="@color/secondary_color"
         android:textSize="24sp"

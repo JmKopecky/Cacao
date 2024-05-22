@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Cacao</string>
     <string name="userpref_key">dev.prognitio.cacao.userpref</string>
+    <string name="userinfo_key">dev.prognitio.cacao.userinfo</string>
 </resources>

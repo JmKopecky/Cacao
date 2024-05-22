@@ -25,13 +25,10 @@ public class WelcomeActivity extends AppCompatActivity {
 
         proceedButton = findViewById(R.id.launchSetupButton);
 
-        proceedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Logger.log("WelcomeActivity Button Activated", LogType.DEBUG, null);
-                Intent switchActivityIntent = new Intent(context, ProfileLaunch.class);
-                startActivity(switchActivityIntent);
-            }
+        proceedButton.setOnClickListener(view -> {
+            Logger.log("WelcomeActivity Button Activated", LogType.DEBUG, null);
+            Intent switchActivityIntent = new Intent(context, ProfileLaunch.class);
+            startActivity(switchActivityIntent);
         });
     }
 }
