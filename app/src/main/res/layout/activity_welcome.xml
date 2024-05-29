@@ -11,7 +11,7 @@
     tools:context=".activities.WelcomeActivity">
 
     <Button
-        android:id="@+id/launchSetupButton"
+        android:id="@+id/finishSetupButton"
         android:layout_width="140dp"
         android:layout_height="60dp"
         android:background="@drawable/rounded_button"

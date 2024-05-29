@@ -17,6 +17,9 @@
             android:name=".activities.ImportCourseDataActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.FinalSetupActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.CourseSetup"
             android:exported="false" />
         <activity
