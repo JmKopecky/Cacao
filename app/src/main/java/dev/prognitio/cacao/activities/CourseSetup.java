@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -116,13 +117,30 @@ public class CourseSetup extends AppCompatActivity {
                 Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
                 courses.add(course);
 
+                SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+
+                int id = 0;
                 for (Course c : courses) {
-                    System.out.println(c.toString());
+                    id++;
+                    //save the course string
+                    String asString = c.toString();
+                    editor.putString("course_" + id, asString);
                 }
+                editor.putInt("course_maxid", id);
+
+                editor.apply();
 
                 //Intent switchActivityIntent = new Intent(context, CourseSetup.class);
                 //startActivity(switchActivityIntent);
             }
+        });
+
+
+        importCourseDataButton.setOnClickListener(view -> {
+            //just switch to the importCourseDataActivity here and handle everything there for conciseness
+            Intent switchActivityIntent = new Intent(context, ImportCourseDataActivity.class);
+            startActivity(switchActivityIntent);
         });
 
 
