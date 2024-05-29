@@ -1,31 +1,33 @@
-package dev.prognitio.cacao.activities;
-
-import androidx.appcompat.app.AppCompatActivity;
+package dev.prognitio.cacao;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import dev.prognitio.cacao.R;
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import dev.prognitio.cacao.activities.ProfileLaunch;
 import dev.prognitio.cacao.log.LogType;
 import dev.prognitio.cacao.log.Logger;
 
-public class WelcomeActivity extends AppCompatActivity {
-
+public class FinalSetupActivity extends AppCompatActivity {
     Button proceedButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_final_setup);
 
         Context context = getApplicationContext();
 
         proceedButton = findViewById(R.id.finishSetupButton);
 
         proceedButton.setOnClickListener(view -> {
-            Logger.log("WelcomeActivity Button Activated", LogType.DEBUG, null);
+            Logger.log("FinalSetupActivity Button Activated", LogType.DEBUG, null);
             Intent switchActivityIntent = new Intent(context, ProfileLaunch.class);
             startActivity(switchActivityIntent);
         });
