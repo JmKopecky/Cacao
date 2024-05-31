@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_background"
     android:backgroundTint="@color/main_background"
-    tools:context=".FeedActivity">
+    tools:context=".activities.FeedActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_bar"

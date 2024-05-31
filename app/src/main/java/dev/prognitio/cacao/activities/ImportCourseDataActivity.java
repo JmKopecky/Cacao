@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import dev.prognitio.cacao.Course;
+import dev.prognitio.cacao.CourseImportUtil;
 import dev.prognitio.cacao.R;
 import dev.prognitio.cacao.log.LogType;
 import dev.prognitio.cacao.log.Logger;
@@ -93,15 +94,23 @@ public class ImportCourseDataActivity extends AppCompatActivity {
             }
 
             if (formatValid) {
-                //attempt to access the grade portal and save info.
+                try {
+                    //attempt to access the grade portal and save info.
 
-                ArrayList<Document> pages = retrieveGradePages(username, password);
+                    ArrayList<Document> pages = retrieveGradePages(username, password);
 
-                for (Document page : pages) {
-                    System.out.println(page.toString());
+                    for (Document page : pages) {
+                        System.out.println(page.toString());
+                    }
+
+                    ArrayList<Course> courses = CourseImportUtil.parseImportedDocuments(pages);
+
+                    finishImportButton.setVisibility(View.VISIBLE);
+
+                } catch (Exception e) {
+                    //if something goes wrong
                 }
 
-                finishImportButton.setVisibility(View.VISIBLE);
             }
 
         });

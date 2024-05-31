@@ -1,4 +1,4 @@
-package dev.prognitio.cacao;
+package dev.prognitio.cacao.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import dev.prognitio.cacao.R;
 import dev.prognitio.cacao.activities.ProfileLaunch;
 import dev.prognitio.cacao.log.LogType;
 import dev.prognitio.cacao.log.Logger;
