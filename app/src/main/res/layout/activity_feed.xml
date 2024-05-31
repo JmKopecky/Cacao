@@ -12,35 +12,68 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_bar"
         android:layout_width="415dp"
-        android:layout_height="55dp"
+        android:layout_height="62dp"
         android:background="@color/secondary_background"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="676dp">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/add_notes_button"
-            android:layout_width="75dp"
-            android:layout_height="60dp"
-            android:background="#2CD330"
-            android:backgroundTint="#00673232"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="-3dp">
+        <ImageButton
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleX="1.15"
+            android:scaleY="1.15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/settings_svgrepo_com"
+            tools:layout_editor_absoluteY="0dp" />
 
-            <ImageButton
-                android:id="@+id/add_notes"
-                android:layout_width="54dp"
-                android:layout_height="45dp"
-                android:backgroundTint="#00DA4167"
-                android:scaleX="2.25"
-                android:scaleY="2.25"
-                android:tint="#00FFFFFF"
-                app:srcCompat="@drawable/add_notes"
-                tools:layout_editor_absoluteX="10dp"
-                tools:layout_editor_absoluteY="8dp" />
+        <ImageButton
+            android:id="@+id/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleX="1.15"
+            android:scaleY="1.15"
+            app:srcCompat="@drawable/calendar_lines_svgrepo_com"
+            tools:layout_editor_absoluteX="95dp"
+            tools:layout_editor_absoluteY="0dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/home_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            app:layout_constraintEnd_toStartOf="@+id/calendar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/home_1392_svgrepo_com"
+            tools:layout_editor_absoluteY="1dp" />
+
+        <ImageButton
+            android:id="@+id/imageButton9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleX="1.25"
+            android:scaleY="1.15"
+            app:layout_constraintEnd_toStartOf="@+id/settings"
+            app:srcCompat="@drawable/notebook_svgrepo_com"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageButton
+            android:id="@+id/add_notes"
+            android:layout_width="88dp"
+            android:layout_height="103dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+            app:layout_constraintStart_toEndOf="@+id/calendar"
+            app:srcCompat="@drawable/cac2024notebookicon3__1_"
+            tools:layout_editor_absoluteY="-20dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -49,8 +82,35 @@
         android:layout_width="415dp"
         android:layout_height="55dp"
         android:background="@color/secondary_background"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="-3dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/files"
+            android:layout_width="85dp"
+            android:layout_height="83dp"
+            android:layout_marginEnd="4dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/file_button"
+            tools:layout_editor_absoluteY="-14dp" />
+
+        <TextView
+            android:id="@+id/cacao_text"
+            android:layout_width="119dp"
+            android:layout_height="49dp"
+            android:fontFamily="@font/chewy"
+            android:text="CACAO"
+            android:textColor="@color/text_color"
+            android:textColorLink="@color/text_color"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toStartOf="@+id/files"
+            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="3dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
