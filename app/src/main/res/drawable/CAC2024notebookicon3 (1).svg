@@ -12,7 +12,7 @@
    width="120mm"
    height="120mm"
    viewBox="-60 -60 120 120"
-   sodipodi:docname="CAC2024notebookicon2.svg"
+   sodipodi:docname="CAC2024notebookicon3.svg"
    version="1.1"
    id="svg3860"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
@@ -45,7 +45,9 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
      inkscape:snap-grids="true"
-     id="namedview3850">
+     id="namedview3850"
+     inkscape:measure-start="0,0"
+     inkscape:measure-end="0,0">
     <sodipodi:guide
        orientation="1,0"
        position="226.771653543,226.771653543"
@@ -84,14 +86,14 @@
      id="Template"
      style="fill:none;stroke:black;stroke-width:0.05">
     <ellipse
-       style="fill:#1a1a1a;stroke-width:0.25283512"
+       style="fill:#000000;stroke-width:0.25283512"
        id="path3725"
        cx="-28.800831"
        cy="-35.292824"
        rx="4.7942576"
        ry="4.4219184" />
     <ellipse
-       style="fill:#1a1a1a;stroke-width:0.25283512"
+       style="fill:#000000;stroke-width:0.25283512"
        id="path3725-1"
        cx="-28.004438"
        cy="-5.051085"
@@ -105,53 +107,46 @@
        rx="4.7942576"
        ry="4.4219184" />
     <rect
-       style="fill:#1a1a1a;stroke-width:0.01322917"
+       style="fill:#000000;stroke-width:0.01322917"
        id="rect3900"
        width="5.9873734"
        height="95.785805"
        x="-44.389584"
        y="-52.712502" />
     <rect
-       style="fill:#1a1a1a;stroke-width:0.01471137"
+       style="fill:#000000;stroke-width:0.01471137"
        id="rect3902"
        width="68.54731"
        height="5.3312335"
        x="-38.832592"
        y="37.775738" />
     <rect
-       style="fill:#1a1a1a;stroke:#000000;stroke-width:0.01466522"
+       style="fill:#000000;stroke:#000000;stroke-width:0.01466522"
        id="rect3902-1"
        width="68.117256"
        height="5.3312798"
        x="-38.402519"
        y="-52.712811" />
     <rect
-       style="fill:#1a1a1a;stroke:#000000;stroke-width:0.01322917"
+       style="fill:#000000;stroke:#000000;stroke-width:0.01322917"
        id="rect3900-7"
        width="5.9873734"
        height="95.785805"
        x="23.728085"
        y="-52.713528" />
-    <ellipse
-       style="fill:#1a1a1a;stroke-width:0.01570993"
-       id="path3955"
-       cx="23.72147"
-       cy="38.588764"
-       rx="14.404587"
-       ry="14.145473" />
     <rect
-       style="fill:#ffffff;stroke:#000000;stroke-width:0.25283512"
+       style="fill:#000000;stroke:#000000;stroke-width:0.25283512"
        id="rect3769-3"
        width="18.439453"
        height="4.245049"
-       x="14.501743"
-       y="36.46624" />
+       x="-0.46535018"
+       y="-33.130745" />
     <rect
-       style="fill:#ffffff;stroke-width:0.01383969"
+       style="fill:#000000;stroke-width:0.01383969"
        id="rect4019"
        width="4.3013506"
        height="19.45937"
-       x="21.570795"
-       y="28.859079" />
+       x="6.6037016"
+       y="-40.737904" />
   </g>
 </svg>

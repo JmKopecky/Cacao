@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_bar"
         android:layout_width="415dp"
-        android:layout_height="55dp"
+        android:layout_height="62dp"
         android:background="@color/secondary_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +63,18 @@
             app:srcCompat="@drawable/notebook_svgrepo_com"
             tools:layout_editor_absoluteY="0dp" />
 
+        <ImageButton
+            android:id="@+id/add_notes"
+            android:layout_width="88dp"
+            android:layout_height="103dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+            app:layout_constraintStart_toEndOf="@+id/calendar"
+            app:srcCompat="@drawable/cac2024notebookicon3__1_"
+            tools:layout_editor_absoluteY="-20dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -92,6 +104,8 @@
             android:layout_height="49dp"
             android:fontFamily="@font/chewy"
             android:text="CACAO"
+            android:textColor="@color/text_color"
+            android:textColorLink="@color/text_color"
             android:textSize="40sp"
             app:layout_constraintEnd_toStartOf="@+id/files"
             app:layout_constraintHorizontal_bias="0.073"
