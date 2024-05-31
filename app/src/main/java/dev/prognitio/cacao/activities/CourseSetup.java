@@ -80,7 +80,7 @@ public class CourseSetup extends AppCompatActivity {
                 courseGradeInput.setTextColor(getResources().getColor(R.color.text_color));
                 courseGPAInput.setTextColor(getResources().getColor(R.color.text_color));
 
-                Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
+                Course course = new Course(courseName, null, courseSemester, courseGPA, courseGrade);
                 courses.add(course);
             }
         }));
@@ -114,7 +114,7 @@ public class CourseSetup extends AppCompatActivity {
             }
 
             if (noFormattingErrors) {
-                Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
+                Course course = new Course(courseName, null, courseSemester, courseGPA, courseGrade);
                 courses.add(course);
 
                 SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
