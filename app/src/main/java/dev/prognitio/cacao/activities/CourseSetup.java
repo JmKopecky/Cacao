@@ -48,7 +48,7 @@ public class CourseSetup extends AppCompatActivity {
             String courseName = courseNameInput.getText().toString();
             int courseSemester = -1;
             double courseGPA = -1;
-            double courseGrade = -1;
+            int courseGrade = -1;
             boolean noFormattingErrors = true;
 
 
@@ -65,7 +65,7 @@ public class CourseSetup extends AppCompatActivity {
                 noFormattingErrors = false;
             }
             try {
-                courseGrade = Double.parseDouble(courseGradeInput.getText().toString());
+                courseGrade = Integer.parseInt(courseGradeInput.getText().toString());
             } catch (Exception e) {
                 courseGradeInput.setTextColor(getResources().getColor(R.color.red));
                 noFormattingErrors = false;
@@ -80,7 +80,7 @@ public class CourseSetup extends AppCompatActivity {
                 courseGradeInput.setTextColor(getResources().getColor(R.color.text_color));
                 courseGPAInput.setTextColor(getResources().getColor(R.color.text_color));
 
-                Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
+                Course course = new Course(courseName, null, courseSemester, courseGPA, courseGrade);
                 courses.add(course);
             }
         }));
@@ -90,7 +90,7 @@ public class CourseSetup extends AppCompatActivity {
             String courseName = courseNameInput.getText().toString();
             int courseSemester = -1;
             double courseGPA = -1;
-            double courseGrade = -1;
+            int courseGrade = -1;
             boolean noFormattingErrors = true;
 
 
@@ -107,14 +107,14 @@ public class CourseSetup extends AppCompatActivity {
                 noFormattingErrors = false;
             }
             try {
-                courseGrade = Double.parseDouble(courseGradeInput.getText().toString());
+                courseGrade = Integer.parseInt(courseGradeInput.getText().toString());
             } catch (Exception e) {
                 courseGradeInput.setTextColor(getResources().getColor(R.color.red));
                 noFormattingErrors = false;
             }
 
             if (noFormattingErrors) {
-                Course course = new Course(courseName, courseSemester, courseGPA, courseGrade);
+                Course course = new Course(courseName, null, courseSemester, courseGPA, courseGrade);
                 courses.add(course);
 
                 SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
