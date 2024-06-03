@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -25,6 +26,13 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         Context context = getApplicationContext();
+
+        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
+        if (sharedPref.getBoolean("hasfinishedsetup", false)) {
+            Intent switchActivityIntent = new Intent(context, FeedActivity.class);
+            startActivity(switchActivityIntent);
+        }
+
 
         proceedButton = findViewById(R.id.finishSetupButton);
 

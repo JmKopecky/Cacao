@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
@@ -70,8 +71,27 @@ public class ImportCourseDataActivity extends AppCompatActivity {
         finishImportButton.setOnClickListener(view -> {
             //save courses data
 
-            //Intent switchActivityIntent = new Intent(context, CourseSetup.class);
-            //startActivity(switchActivityIntent);
+
+            ArrayList<String> courseStrings = new ArrayList<>();
+            for (Course course : courses) {
+                Logger.log(course.toString(), LogType.DEBUG, null);
+                courseStrings.add(course.toString());
+            }
+
+            SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+
+            int id = 0;
+            for (String s : courseStrings) {
+                id++;
+                editor.putString("course_" + id, s);
+            }
+            editor.putInt("course_maxid", id);
+
+            editor.apply();
+
+            Intent switchActivityIntent = new Intent(context, FinalSetupActivity.class);
+            startActivity(switchActivityIntent);
         });
 
 
@@ -99,11 +119,7 @@ public class ImportCourseDataActivity extends AppCompatActivity {
 
                     ArrayList<Document> pages = retrieveGradePages(username, password);
 
-                    for (Document page : pages) {
-                        System.out.println(page.toString());
-                    }
-
-                    ArrayList<Course> courses = CourseImportUtil.parseImportedDocuments(pages);
+                    courses = CourseImportUtil.parseImportedDocuments(pages);
 
                     finishImportButton.setVisibility(View.VISIBLE);
 
