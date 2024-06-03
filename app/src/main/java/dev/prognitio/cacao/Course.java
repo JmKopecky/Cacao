@@ -11,14 +11,21 @@ public class Course {
     public String teacher;
     public int semester;
     public double GPA;
-    public double grade;
+    public int grade;
 
-    public Course(String courseName, @Nullable String teacher, int semester, double GPA, double grade) {
+    public Course(String courseName, @Nullable String teacher, int semester, double GPA, int grade) {
+
+        if (teacher.contains("^")) {
+            teacher = teacher.replace("^", ",");
+        }
+
         this.courseName = courseName;
         this.teacher = teacher;
         this.semester = semester;
         this.GPA = GPA;
         this.grade = grade;
+
+
     }
 
     public String toString() {
