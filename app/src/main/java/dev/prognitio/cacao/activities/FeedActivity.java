@@ -1,11 +1,8 @@
 package dev.prognitio.cacao.activities;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -13,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 
+import java.util.HashMap;
 import java.util.Random;
 
+import dev.prognitio.cacao.MiscellaneousFactsCurator;
 import dev.prognitio.cacao.R;
 
 public class FeedActivity extends AppCompatActivity {
@@ -78,6 +77,7 @@ public class FeedActivity extends AppCompatActivity {
             //show notes
         } else {
             //show content from selected topics
+            HashMap<String, String> apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
         }
 
         return layout;
