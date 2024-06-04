@@ -5,19 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-
+import dev.prognitio.cacao.MiscellaneousFactsCurator;
 import dev.prognitio.cacao.R;
 import dev.prognitio.cacao.log.LogType;
 import dev.prognitio.cacao.log.Logger;
@@ -25,8 +21,6 @@ import dev.prognitio.cacao.log.Logger;
 
 public class PreferencesSelection extends AppCompatActivity {
 
-
-    public static ArrayList<String> options = new ArrayList<>();
 
     LinearLayout layout;
     Button proceedButton;
@@ -37,8 +31,6 @@ public class PreferencesSelection extends AppCompatActivity {
         setContentView(R.layout.activity_preferences_selection);
         Context context = getApplicationContext();
 
-        populateOptions();
-
         layout = findViewById(R.id.scrolllayout);
 
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) layout.getLayoutParams();
@@ -46,13 +38,13 @@ public class PreferencesSelection extends AppCompatActivity {
         proceedButton = findViewById(R.id.submitpreferencesbutton);
 
 
-        for (String feedOption : options) {
+        for (String feedOption : MiscellaneousFactsCurator.factOption) {
             CheckedTextView toAdd = new CheckedTextView(context);
             toAdd.setText(feedOption);
             toAdd.setTextSize(20);
             toAdd.setTextColor(getColor(R.color.text_color));
             toAdd.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
-            toAdd.setPadding(0,10,0,10);
+            toAdd.setPadding(0, 10, 0, 10);
             toAdd.setWidth(params.width);
             toAdd.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             toAdd.setChecked(false);
@@ -88,23 +80,5 @@ public class PreferencesSelection extends AppCompatActivity {
             Intent switchActivityIntent = new Intent(context, CourseSetup.class);
             startActivity(switchActivityIntent);
         });
-    }
-
-
-    private static void populateOptions() {
-        options.add("Assorted Definitions");
-        options.add("Random Facts 1");
-        options.add("Random Facts 2");
-        options.add("Random Facts 3");
-        options.add("Random Facts 4");
-        options.add("Random Facts 5");
-        options.add("Random Facts 6");
-        options.add("Random Facts 7");
-        options.add("Random Facts 8");
-        options.add("Random Facts 9");
-        options.add("Random Facts 10");
-        options.add("Random Facts 11");
-        options.add("Random Facts 12");
-        options.add("Random Facts 13");
     }
 }
