@@ -56,11 +56,4 @@ public class Course {
         output = gson.fromJson(str, Course.class);
         return output;
     }
-
-
-
-
-
-
-
 }
