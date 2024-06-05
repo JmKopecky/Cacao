@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_background"
     android:backgroundTint="@color/main_background"
     android:orientation="vertical"
-    tools:context=".activities.FeedActivity">
+    tools:context=".activities.CourseDisplayActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar"
@@ -47,13 +46,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
-        android:id="@+id/feedscrollarea"
+        android:id="@+id/coursescrollarea"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_weight="0.7">
 
         <LinearLayout
-            android:id="@+id/feedscrolllayout"
+            android:id="@+id/coursescrolllayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
@@ -95,7 +94,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
-            android:tint="@color/accent_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -109,6 +107,7 @@
             android:backgroundTint="#00FFFFFF"
             android:scaleX="1.25"
             android:scaleY="1.15"
+            android:tint="@color/accent_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/settings"
             app:layout_constraintTop_toTopOf="parent"
@@ -129,5 +128,4 @@
             app:srcCompat="@drawable/add_note_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </LinearLayout>

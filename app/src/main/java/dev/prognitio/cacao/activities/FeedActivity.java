@@ -1,26 +1,98 @@
 package dev.prognitio.cacao.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.content.res.AppCompatResources;
 
+
+import java.util.HashMap;
+import java.util.Random;
+
+import dev.prognitio.cacao.MiscellaneousFactsCurator;
 import dev.prognitio.cacao.R;
 
 public class FeedActivity extends AppCompatActivity {
 
+    LinearLayout scrollarea;
+    ScrollView scrollviewroot;
+
+
+    ImageButton switchToCourseScreenButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_feed);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        Context context = getApplicationContext();
+
+
+
+
+
+        scrollarea = findViewById(R.id.feedscrolllayout);
+        scrollviewroot = findViewById(R.id.feedscrollarea);
+
+        for (int i = 0; i < 5; i++) { //generate 5 tiles on startup, generate more once the user reaches the bottom
+            LinearLayout layout = generateFeedTile(context);
+            scrollarea.addView(layout);
+        }
+
+        scrollviewroot.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View view, int x, int y, int oldX, int oldY) {
+                if (!view.canScrollVertically(1)) {
+                    //reached bottom of view, add layout to view
+                    LinearLayout layout = generateFeedTile(context);
+                    scrollarea.addView(layout);
+                }
+            }
         });
+
+
+        switchToCourseScreenButton = findViewById(R.id.course_button);
+        switchToCourseScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, CourseDisplayActivity.class);
+            startActivity(switchActivityIntent);
+        });
+    }
+
+    private LinearLayout generateFeedTile(Context context) {
+
+        final float density = context.getResources().getDisplayMetrics().density;
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, (int) (400 * density)
+        );
+
+        params.setMargins((int) (48 * density), (int) (48 * density), (int) (48 * density), (int) (48 * density));
+
+        LinearLayout layout = new LinearLayout(context);
+        layout.setLayoutParams(params);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        //format tile
+        layout.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
+        layout.setBackgroundColor(getColor(R.color.secondary_background));
+
+
+        Random random = new Random();
+        Double randomN = random.nextDouble();
+
+        if (randomN > 0.5) {
+            //show notes
+
+        } else {
+            //show content from selected topics
+            HashMap<String, String> apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
+        }
+
+        return layout;
     }
 }
