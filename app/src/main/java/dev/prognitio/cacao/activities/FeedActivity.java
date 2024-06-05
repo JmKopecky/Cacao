@@ -1,8 +1,10 @@
 package dev.prognitio.cacao.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -22,12 +24,15 @@ public class FeedActivity extends AppCompatActivity {
     ScrollView scrollviewroot;
 
 
+    ImageButton switchToCourseScreenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
         Context context = getApplicationContext();
+
+
 
 
 
@@ -48,6 +53,13 @@ public class FeedActivity extends AppCompatActivity {
                     scrollarea.addView(layout);
                 }
             }
+        });
+
+
+        switchToCourseScreenButton = findViewById(R.id.course_button);
+        switchToCourseScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, CourseDisplayActivity.class);
+            startActivity(switchActivityIntent);
         });
     }
 
@@ -75,6 +87,7 @@ public class FeedActivity extends AppCompatActivity {
 
         if (randomN > 0.5) {
             //show notes
+
         } else {
             //show content from selected topics
             HashMap<String, String> apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
