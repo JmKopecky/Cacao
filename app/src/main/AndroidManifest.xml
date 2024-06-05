@@ -14,10 +14,10 @@
         android:theme="@style/Theme.Cacao"
         tools:targetApi="31">
         <activity
-            android:name=".activities.CalendarActivity"
+            android:name=".activities.CourseDisplayActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.CourseDisplayActivity"
+            android:name=".activities.CalendarActivity"
             android:exported="false" />
         <activity
             android:name=".activities.WelcomeActivity$settings"
