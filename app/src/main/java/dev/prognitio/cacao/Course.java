@@ -24,8 +24,21 @@ public class Course {
         this.semester = semester;
         this.GPA = GPA;
         this.grade = grade;
+    }
 
 
+    public double calculateGPA() {
+        double output = -1;
+
+        output = GPA - ((100 - grade) * 0.1);
+
+        return output;
+    }
+
+    public String getSemesterAsString() {
+        String output = "ERROR";
+        output = semester % 2 == 0 ? "Spring" : "Fall";
+        return output;
     }
 
     public String toString() {
