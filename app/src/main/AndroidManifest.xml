@@ -18,7 +18,7 @@
             android:exported="false"
             android:theme="@style/Theme.Cacao" />
         <activity
-            android:name=".app_settings"
+            android:name=".activities.Settings"
             android:exported="false"
             android:theme="@style/Theme.Cacao" />
         <activity
