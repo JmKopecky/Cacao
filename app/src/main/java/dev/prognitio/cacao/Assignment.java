@@ -22,6 +22,10 @@ public class Assignment {
         this.details = details;
     }
 
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
     public String toString() {
         String result;
         GsonBuilder builder = new GsonBuilder();
