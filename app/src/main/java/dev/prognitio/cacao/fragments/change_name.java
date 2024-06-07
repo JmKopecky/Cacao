@@ -1,5 +1,7 @@
 package dev.prognitio.cacao.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import dev.prognitio.cacao.R;
 
@@ -48,19 +52,34 @@ public class change_name extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
+
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_change_name, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_change_name, container, false);
+        Context context = view.getContext();
+        Button ConfirmName = view.findViewById(R.id.confirm_name);
+        EditText NameText = view.findViewById(R.id.input_name);
+        String name = NameText.getText().toString();
+
+        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.userinfo_key), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        editor.putString("usersupplied_name", name);
+        editor.apply();
+
+        return view;
     }
 }
