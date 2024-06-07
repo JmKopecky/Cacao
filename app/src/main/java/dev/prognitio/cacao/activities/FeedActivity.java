@@ -25,6 +25,9 @@ public class FeedActivity extends AppCompatActivity {
 
 
     ImageButton switchToCourseScreenButton;
+    ImageButton switchToSettingsScreenButton;
+    ImageButton switchToCalendarScreenButton;
+    ImageButton switchToNotesScreenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,21 @@ public class FeedActivity extends AppCompatActivity {
         switchToCourseScreenButton = findViewById(R.id.course_button);
         switchToCourseScreenButton.setOnClickListener(view -> {
             Intent switchActivityIntent = new Intent(context, CourseDisplayActivity.class);
+            startActivity(switchActivityIntent);
+        });
+        switchToSettingsScreenButton = findViewById(R.id.settings);
+        switchToSettingsScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, Settings.class);
+            startActivity(switchActivityIntent);
+        });
+        switchToCalendarScreenButton = findViewById(R.id.calendar);
+        switchToCalendarScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, CalendarActivity.class);
+            startActivity(switchActivityIntent);
+        });
+        switchToNotesScreenButton = findViewById(R.id.add_notes);
+        switchToNotesScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, NotesActivity.class);
             startActivity(switchActivityIntent);
         });
     }

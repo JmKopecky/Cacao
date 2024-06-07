@@ -2,7 +2,6 @@ package dev.prognitio.cacao.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +25,11 @@ public class CourseDisplayActivity extends AppCompatActivity {
     ScrollView scrollviewroot;
 
     ImageButton switchToFeedScreenButton;
+    ImageButton switchToSettingsScreenButton;
+    ImageButton switchToCalendarScreenButton;
+    ImageButton switchToNotesScreenButton;
+
+    ImageButton addAssignmentButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,9 +96,33 @@ public class CourseDisplayActivity extends AppCompatActivity {
             scrollarea.addView(layout);
         }
 
+
+        addAssignmentButton = findViewById(R.id.addassignmentbutton);
+        addAssignmentButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, AddAssignmentActivity.class);
+            startActivity(switchActivityIntent);
+        });
+
+
+
         switchToFeedScreenButton = findViewById(R.id.home_button);
         switchToFeedScreenButton.setOnClickListener(view -> {
             Intent switchActivityIntent = new Intent(context, FeedActivity.class);
+            startActivity(switchActivityIntent);
+        });
+        switchToSettingsScreenButton = findViewById(R.id.settings);
+        switchToSettingsScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, Settings.class);
+            startActivity(switchActivityIntent);
+        });
+        switchToCalendarScreenButton = findViewById(R.id.calendar);
+        switchToCalendarScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, CalendarActivity.class);
+            startActivity(switchActivityIntent);
+        });
+        switchToNotesScreenButton = findViewById(R.id.add_notes);
+        switchToNotesScreenButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, NotesActivity.class);
             startActivity(switchActivityIntent);
         });
     }

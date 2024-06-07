@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import dev.prognitio.cacao.R;
@@ -21,6 +22,7 @@ import dev.prognitio.cacao.log.LogType;
 import dev.prognitio.cacao.log.Logger;
 
 public class Settings extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
