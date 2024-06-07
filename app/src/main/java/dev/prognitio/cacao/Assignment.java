@@ -5,16 +5,17 @@ import com.google.gson.GsonBuilder;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Assignment {
 
-    Date dueDate;
+    LocalDate dueDate;
     String applicableCourse;
     String title;
     String details;
 
-    public Assignment(@Nullable String applicableCourse, Date dueDate, String title, @Nullable String details) {
+    public Assignment(@Nullable String applicableCourse, LocalDate dueDate, String title, @Nullable String details) {
         this.dueDate = dueDate;
         this.applicableCourse = applicableCourse;
         this.title = title;

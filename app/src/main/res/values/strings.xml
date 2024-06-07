@@ -3,6 +3,7 @@
     <string name="userpref_key">dev.prognitio.cacao.userpref</string>
     <string name="userinfo_key">dev.prognitio.cacao.userinfo</string>
     <string name="usercourses_key">dev.prognitio.cacao.usercourses</string>
+    <string name="userassignments_key">dev.prognitio.cacao.userassignments</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
