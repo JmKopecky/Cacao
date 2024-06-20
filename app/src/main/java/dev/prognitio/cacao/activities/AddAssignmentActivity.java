@@ -48,15 +48,18 @@ public class AddAssignmentActivity extends AppCompatActivity {
 
             LocalDate asTrueDate;
             try {
-                asTrueDate = LocalDate.parse(date);
+                asTrueDate = LocalDate.of(Integer.parseInt(date.split("-")[0]), Integer.parseInt(date.split("-")[0]), Integer.parseInt(date.split("-")[0]));
             } catch (Exception e) {
                 //do not add assignment, formatting failed.
-
+                System.out.println("Formatting assignment date failed");
                 return;
             }
             Assignment assignment = new Assignment(course, asTrueDate, title, detail);
 
             String assignmentAsString = assignment.toString();
+
+            System.out.println(assignment.getDueDate());
+            System.out.println(assignmentAsString);
 
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.userassignments_key), Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
