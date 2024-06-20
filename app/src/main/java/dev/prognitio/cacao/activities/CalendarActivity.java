@@ -20,12 +20,18 @@ public class CalendarActivity extends AppCompatActivity {
     ImageButton switchToFeedScreenButton;
     ImageButton switchToNotesScreenButton;
 
+    ArrayList<String> months = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
         Context context = getApplicationContext();
 
+        months.add("January");months.add("February");months.add("March");
+        months.add("April");months.add("May");months.add("June");
+        months.add("July");months.add("August");months.add("September");
+        months.add("October");months.add("November");months.add("December");
 
 
         ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
@@ -40,10 +46,14 @@ public class CalendarActivity extends AppCompatActivity {
             for (int i = 1; i <= maxAssignmentIndex; i++) {
                 Assignment assignment = Assignment.fromString(sharedPref.getString("assignment_" + i, ""));
                 assignmentList.add(assignment);
+                System.out.println(assignment.getDueDate().getMonth());
             }
         }
 
 
+        for (String month : months) {
+
+        }
 
 
 
