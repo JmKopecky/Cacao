@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/color_fragment"
     android:layout_width="match_parent"
@@ -10,36 +11,45 @@
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="410dp"
         android:layout_height="320dp"
         android:background="@color/secondary_background"
         android:textColor="#F10000"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-3dp" />
+        tools:layout_editor_absoluteY="-1dp" />
 
     <Button
         android:id="@+id/confirm_gold"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:text="Gold Themed"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="23dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="123dp" />
 
     <Button
         android:id="@+id/confirm_black"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:text="Black Themed"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="214dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_gold"
+        app:layout_constraintVertical_bias="0.765" />
 
     <Button
         android:id="@+id/confirm_blue"
         android:layout_width="195dp"
         android:layout_height="60dp"
+        android:layout_marginTop="28dp"
         android:text="Blue Themed"
-        tools:layout_editor_absoluteX="108dp"
-        tools:layout_editor_absoluteY="119dp" />
+        app:layout_constraintBottom_toTopOf="@+id/confirm_gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
