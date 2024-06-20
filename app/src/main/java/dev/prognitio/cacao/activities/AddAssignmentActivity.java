@@ -48,7 +48,7 @@ public class AddAssignmentActivity extends AppCompatActivity {
 
             LocalDate asTrueDate;
             try {
-                asTrueDate = LocalDate.parse(date);
+                asTrueDate = LocalDate.of(Integer.parseInt(date.split("-")[0]), Integer.parseInt(date.split("-")[0]), Integer.parseInt(date.split("-")[0]));
             } catch (Exception e) {
                 //do not add assignment, formatting failed.
                 System.out.println("Formatting assignment date failed");

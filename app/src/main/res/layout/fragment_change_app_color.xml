@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".change_name">
+    tools:context=".fragments.change_name">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteY="23dp" />
 
     <Button
-        android:id="@+id/confirm_blue"
+        android:id="@+id/confirm_black"
         android:layout_width="195dp"
         android:layout_height="60dp"
         android:text="Black Themed"
