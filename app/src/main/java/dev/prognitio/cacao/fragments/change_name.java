@@ -70,7 +70,7 @@ public class change_name extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_change_name, container, false);
         Context context = view.getContext();
-        Button ConfirmName = view.findViewById(R.id.confirm_name);
+        Button ConfirmName = view.findViewById(R.id.confirm_blue);
         EditText NameText = view.findViewById(R.id.input_name);
         String name = NameText.getText().toString();
 

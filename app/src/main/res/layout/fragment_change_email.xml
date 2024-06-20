@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/name_fragment"
+    android:id="@+id/email_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
@@ -21,13 +21,13 @@
         android:layout_height="49dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Input Name Change"
+        android:text="Input Email Change"
         android:textColor="@color/text_color"
         tools:layout_editor_absoluteX="56dp"
         tools:layout_editor_absoluteY="16dp" />
 
     <Button
-        android:id="@+id/confirm_blue"
+        android:id="@+id/confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Confirm"
