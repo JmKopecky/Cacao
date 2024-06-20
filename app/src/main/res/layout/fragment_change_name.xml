@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/name_fragment"
     android:layout_width="match_parent"
@@ -8,30 +9,39 @@
     tools:context=".change_name">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="410dp"
         android:layout_height="320dp"
         android:background="@color/secondary_background"
         android:textColor="#F10000"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
         android:id="@+id/input_name"
         android:layout_width="299dp"
         android:layout_height="49dp"
+        android:layout_marginBottom="84dp"
         android:ems="10"
         android:inputType="text"
         android:text="Input Name Change"
         android:textColor="@color/text_color"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toTopOf="@+id/confirm_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/confirm_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
         android:text="Confirm"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="77dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        tools:layout_editor_absoluteX="156dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
