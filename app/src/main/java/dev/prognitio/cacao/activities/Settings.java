@@ -52,11 +52,67 @@ public class Settings extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView4, change_name.class, null)
+                        .replace(R.id.name_fragment, change_name.class, null)
                         .setReorderingAllowed(true)
-                        .addToBackStack("name")
+                        .addToBackStack("name_fragment")
                         .commit();
             }
         });
+
+        Button button_username = findViewById(R.id.username_button);
+        button_username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.username_fragment, change_name.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("username_fragment")
+                        .commit();
+            }
+        });
+
+        Button button_email = findViewById(R.id.email_button);
+        button_email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.email_fragment, change_name.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("email_fragment")
+                        .commit();
+            }
+        });
+
+        Button button_color = findViewById(R.id.app_color_button);
+        button_color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                fragmentManager.beginTransaction()
+                        .replace(R.id.color_fragment, change_name.class, null)
+                        .setReorderingAllowed(true)
+                        .addToBackStack("color_fragment")
+                        .commit();
+            }
+        });
+
+//        Button button_color = findViewById(R.id.app_color_button);
+//        button_color.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.color_fragment, change_name.class, null)
+//                        .setReorderingAllowed(true)
+//                        .addToBackStack("email")
+//                        .commit();
+//            }
+//        });
     }
 }
