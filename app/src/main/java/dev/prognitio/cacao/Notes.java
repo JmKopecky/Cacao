@@ -7,10 +7,12 @@ import com.google.gson.GsonBuilder;
 public class Notes {
     private String title;
     private String content;
+    private int weight;
 
-    public Notes(String title, String content) {
+    public Notes(String title, String content, int weight) {
         this.title = title;
         this.content = content;
+        this.weight = weight;
     }
     public String toString() {
         String result;
