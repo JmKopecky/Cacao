@@ -2,6 +2,7 @@ package dev.prognitio.cacao.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -29,7 +30,15 @@ public class FinalSetupActivity extends AppCompatActivity {
 
         proceedButton.setOnClickListener(view -> {
             Logger.log("FinalSetupActivity Button Activated", LogType.DEBUG, null);
-            Intent switchActivityIntent = new Intent(context, ProfileLaunch.class);
+
+            SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+
+            editor.putBoolean("hasfinishedsetup", true);
+
+            editor.apply();
+
+            Intent switchActivityIntent = new Intent(context, FeedActivity.class);
             startActivity(switchActivityIntent);
         });
     }

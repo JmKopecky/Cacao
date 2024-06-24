@@ -2,22 +2,56 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.NotesActivity">
+    android:background="@color/main_background"
+    android:paddingVertical="4dp"
+    tools:context=".activities.CourseDisplayActivity">
 
     <LinearLayout
-        android:id="@+id/notes_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/secondary_background"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/addassignmentbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            android:tint="@color/accent_color"
+            app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
+        <TextView
+            android:id="@+id/addassignmenttext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono"
+            android:paddingHorizontal="4dp"
+            android:paddingBottom="4dp"
+            android:text="Add Assignment"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_background"
-        android:backgroundTint="@color/main_background"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".activities.FeedActivity">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/top_bar"
@@ -29,7 +63,6 @@
                 android:id="@+id/files"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:backgroundTint="#00FFFFFF"
                 android:scaleX="2"
                 android:scaleY="2"
@@ -40,8 +73,8 @@
 
             <TextView
                 android:id="@+id/cacao_text"
-                android:layout_width="119dp"
-                android:layout_height="49dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/chewy"
                 android:text="CACAO"
                 android:textColor="@color/text_color"
@@ -56,13 +89,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
-            android:id="@+id/notesscrollarea"
+            android:id="@+id/coursescrollarea"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="0.7">
 
             <LinearLayout
-                android:id="@+id/notesscrolllayout"
+                android:id="@+id/coursescrolllayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
@@ -90,7 +123,6 @@
                 android:id="@+id/calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:backgroundTint="#00FFFFFF"
                 android:scaleX="1.15"
                 android:scaleY="1.15"
@@ -113,10 +145,10 @@
                 android:id="@+id/course_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:backgroundTint="#00FFFFFF"
                 android:scaleX="1.25"
                 android:scaleY="1.15"
+                android:tint="@color/accent_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/settings"
                 app:layout_constraintTop_toTopOf="parent"
@@ -129,7 +161,6 @@
                 android:backgroundTint="#00FFFFFF"
                 android:scaleX="1.4"
                 android:scaleY="1.4"
-                android:tint="@color/accent_color"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/course_button"
@@ -140,4 +171,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
