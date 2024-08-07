@@ -114,11 +114,15 @@
         android:background="@drawable/rounded_button"
         android:backgroundTint="@color/accent_color"
         android:fontFamily="@font/audiowide"
-        android:text="Create"
+        android:forceHasOverlappingRendering="false"
+        android:foregroundTint="#00FFFFFF"
+        android:text="Confirm"
+        android:textColorLink="@color/accent_color"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editassignmentdetails" />
+        app:layout_constraintTop_toBottomOf="@+id/editassignmentdetails"
+        app:rippleColor="@color/accent_color" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
