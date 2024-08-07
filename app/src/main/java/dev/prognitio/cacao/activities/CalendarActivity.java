@@ -46,9 +46,6 @@ public class CalendarActivity extends AppCompatActivity {
         months.add("July");months.add("August");months.add("September");
         months.add("October");months.add("November");months.add("December");
 
-
-
-
         //retrieve assignments
         ArrayList<Assignment> assignmentList = new ArrayList<Assignment>();
         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.userassignments_key), Context.MODE_PRIVATE);
@@ -62,16 +59,8 @@ public class CalendarActivity extends AppCompatActivity {
             }
         }
 
-
-
-
         //display assignments
         for (String month : months) {
-
-            
-
-
-
 
             ArrayList<Assignment> relevantAssignments = new ArrayList<>();
             for (Assignment assignment : assignmentList) {

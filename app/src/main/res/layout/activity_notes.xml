@@ -7,6 +7,44 @@
     tools:context=".activities.NotesActivity">
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/secondary_background"
+        android:elevation="5dp"
+        android:orientation="vertical"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:id="@+id/addnotebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            android:tint="@color/accent_color"
+            app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
+        <TextView
+            android:id="@+id/addnotetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_mono"
+            android:paddingHorizontal="4dp"
+            android:paddingBottom="4dp"
+            android:text="Add Note"
+            android:textColor="@color/text_color"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/notes_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
