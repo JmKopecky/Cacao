@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Cacao"
         tools:targetApi="31">
         <activity
-            android:name=".activities.MakeANote"
+            android:name=".activities.EditNoteActivity"
             android:exported="false" />
         <activity
             android:name=".activities.AddAssignmentActivity"

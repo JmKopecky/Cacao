@@ -14,6 +14,7 @@ public class Notes {
         this.content = content;
         this.weight = weight;
     }
+
     public String toString() {
         String result;
         GsonBuilder builder = new GsonBuilder();
@@ -22,11 +23,35 @@ public class Notes {
         return result;
     }
 
-    public static Course fromString(String str) {
-        Course output;
+    public static Notes fromString(String str) {
+        Notes output;
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
-        output = gson.fromJson(str, Course.class);
+        output = gson.fromJson(str, Notes.class);
         return output;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 }
