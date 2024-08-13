@@ -2,6 +2,7 @@ package dev.prognitio.cacao.activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,10 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
 import dev.prognitio.cacao.MiscellaneousFactsCurator;
+import dev.prognitio.cacao.Notes;
 import dev.prognitio.cacao.R;
 
 public class FeedActivity extends AppCompatActivity {
@@ -105,7 +108,15 @@ public class FeedActivity extends AppCompatActivity {
 
         if (randomN > 0.5) {
             //show notes
-
+            SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
+            ArrayList<Notes> notesList = new ArrayList<>();
+            String noteRegistry = sharedPref.getString("noteregistry", "");
+            for (String noteTitle : noteRegistry.split(",")) {
+                Notes newNote = Notes.fromString(sharedPref.getString("note_" + noteTitle, ""));
+                notesList.add(newNote);
+            }
+            Notes note = Notes.notesCurator(notesList);
+            System.out.println("NOTE: " + note);
         } else {
             //show content from selected topics
             HashMap<String, String> apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);

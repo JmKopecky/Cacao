@@ -15,7 +15,7 @@ public class Course {
 
     public Course(String courseName, @Nullable String teacher, int semester, double GPA, int grade) {
 
-        if (teacher.contains("^")) {
+        if (teacher != null && teacher.contains("^")) {
             teacher = teacher.replace("^", ",");
         }
 

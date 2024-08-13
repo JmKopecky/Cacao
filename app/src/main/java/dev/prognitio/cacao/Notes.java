@@ -4,6 +4,9 @@ package dev.prognitio.cacao;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Notes {
     private String title;
     private String content;
@@ -53,5 +56,18 @@ public class Notes {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+
+    public static Notes notesCurator(ArrayList<Notes> notesList) {
+        int totalWeight = 0;
+        for (Notes note : notesList) {
+            totalWeight += note.getWeight();
+        }
+        Random random = new Random();
+        int targetIndex = random.nextInt(totalWeight);
+        for (int i = 0; i < targetIndex; i++) {
+
+        }
     }
 }
