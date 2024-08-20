@@ -154,7 +154,7 @@ public class NotesActivity extends AppCompatActivity {
         editButton.setBackgroundColor(getColor(R.color.transparent));
         editButton.setOnClickListener(view -> {
             Intent switchActivityIntent = new Intent(context, EditNoteActivity.class);
-            switchActivityIntent.putExtra("note", "note_" + title);
+            switchActivityIntent.putExtra("note", "note_" + note.getTitle());
             startActivity(switchActivityIntent);
         });
 

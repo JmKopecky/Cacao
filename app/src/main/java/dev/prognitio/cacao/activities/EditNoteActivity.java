@@ -39,13 +39,15 @@ public class EditNoteActivity extends AppCompatActivity {
 
         if (extras != null) {
             String noteTitle = extras.getString("note");
+            System.out.println("NoteTitle: " + noteTitle);
             nameField = findViewById(R.id.editnotename);
             contentField = findViewById(R.id.editnotecontent);
             weightField = findViewById(R.id.editnoteweight);
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
-            nameField.setText(noteTitle);
-            contentField.setText(Notes.fromString(sharedPref.getString("note_" + noteTitle, "")).getContent());
-            weightField.setText(Notes.fromString(sharedPref.getString("note_" + noteTitle, "")).getWeight());
+            nameField.setText(noteTitle.split("_")[1]);
+            System.out.println(Notes.fromString(sharedPref.getString(noteTitle, "")));
+            contentField.setText(Notes.fromString(sharedPref.getString(noteTitle, "")).getContent());
+            weightField.setText("" + Notes.fromString(sharedPref.getString(noteTitle, "")).getWeight());
 
         } else {
             nameField = findViewById(R.id.editnotename);

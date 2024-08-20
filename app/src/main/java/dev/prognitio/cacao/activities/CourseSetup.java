@@ -131,8 +131,8 @@ public class CourseSetup extends AppCompatActivity {
 
                 editor.apply();
 
-                //Intent switchActivityIntent = new Intent(context, CourseSetup.class);
-                //startActivity(switchActivityIntent);
+                Intent switchActivityIntent = new Intent(context, FinalSetupActivity.class);
+                startActivity(switchActivityIntent);
             }
         });
 
