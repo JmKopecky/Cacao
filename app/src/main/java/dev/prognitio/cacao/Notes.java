@@ -66,8 +66,13 @@ public class Notes {
         }
         Random random = new Random();
         int targetIndex = random.nextInt(totalWeight);
-        for (int i = 0; i < targetIndex; i++) {
-
+        int currentVal = 0;
+        for (Notes note : notesList) {
+            currentVal += note.getWeight();
+            if (currentVal > targetIndex) {
+                return note;
+            }
         }
+        throw new IllegalArgumentException();
     }
 }

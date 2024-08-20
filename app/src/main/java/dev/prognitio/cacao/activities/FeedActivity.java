@@ -3,11 +3,14 @@ package dev.prognitio.cacao.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -113,10 +116,42 @@ public class FeedActivity extends AppCompatActivity {
             String noteRegistry = sharedPref.getString("noteregistry", "");
             for (String noteTitle : noteRegistry.split(",")) {
                 Notes newNote = Notes.fromString(sharedPref.getString("note_" + noteTitle, ""));
-                notesList.add(newNote);
+                if (newNote != null) {
+                    notesList.add(newNote);
+                }
             }
-            Notes note = Notes.notesCurator(notesList);
-            System.out.println("NOTE: " + note);
+            if (!notesList.isEmpty()) {
+                Notes note = Notes.notesCurator(notesList);
+                System.out.println("NOTE: " + note);
+
+                LinearLayout.LayoutParams headerlayoutparams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, (int) (50 * density)
+                );
+
+                LinearLayout headerLayout = new LinearLayout(context);
+                headerLayout.setLayoutParams(headerlayoutparams);
+                headerLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+                //format tile
+                float[] hsv = new float[3];
+                Color.colorToHSV(getColor(R.color.secondary_background), hsv);
+                hsv[2] *= 0.8f;
+                headerLayout.setBackgroundColor(Color.HSVToColor(hsv));
+                TextView title = new TextView(context);title.setText(note.getTitle());
+                title.setTextSize(22);
+                title.setTextColor(getColor(R.color.text_color));
+                title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
+                title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                TextView content = new TextView(context);content.setText(note.getContent());
+                content.setTextSize(18);
+                content.setTextColor(getColor(R.color.text_color));
+                content.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
+                content.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                headerLayout.addView(title);
+                layout.addView(headerLayout);
+                layout.addView(content);
+            }
+
         } else {
             //show content from selected topics
             HashMap<String, String> apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
