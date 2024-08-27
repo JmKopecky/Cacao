@@ -9,7 +9,9 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -100,8 +102,17 @@ public class NotesActivity extends AppCompatActivity {
 
 
     private void createNoteTile(Notes note, LinearLayout scrollarea, float density, Context context) {
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+        LinearLayout.LayoutParams rootParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, (int) (100 * density)
+        );
+        rootParams.setMargins((int) (10 * density), (int) (10 * density), (int) (10 * density), (int) (10 * density));
+        LinearLayout rootLayout = new LinearLayout(context);
+        rootLayout.setLayoutParams(rootParams);
+        rootLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, (int) (100 * density)
         );
         params.setMargins((int) (10 * density), (int) (10 * density), (int) (10 * density), (int) (10 * density));
         LinearLayout layout = new LinearLayout(context);
@@ -109,8 +120,8 @@ public class NotesActivity extends AppCompatActivity {
         layout.setOrientation(LinearLayout.VERTICAL);
 
         //format tile
-        layout.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
-        layout.setBackgroundColor(getColor(R.color.secondary_background));
+        rootLayout.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
+        rootLayout.setBackgroundColor(getColor(R.color.secondary_background));
 
         TextView title = new TextView(context);title.setText(note.getTitle());
         title.setTextSize(22);
@@ -133,7 +144,22 @@ public class NotesActivity extends AppCompatActivity {
         weight.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
         layout.addView(weight);
 
-        scrollarea.addView(layout);
-    }
+        rootLayout.addView(layout);
 
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        lp.addRule(RelativeLayout.CENTER_IN_PARENT,1);
+
+        ImageButton editButton = new ImageButton(context);editButton.setImageResource(R.drawable.baseline_edit_24);
+        editButton.setLayoutParams(lp);
+        editButton.setBackgroundColor(getColor(R.color.transparent));
+        editButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, EditNoteActivity.class);
+            switchActivityIntent.putExtra("note", "note_" + note.getTitle());
+            startActivity(switchActivityIntent);
+        });
+
+        rootLayout.addView(editButton);
+
+        scrollarea.addView(rootLayout);
+    }
 }

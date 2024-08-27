@@ -11,4 +11,5 @@
     <color name="secondary_color">#F0BCD4</color>
     <color name="text_color">#F1DAC4</color>
     <color name="extra_logo_brown">#9E6D47</color>
+    <color name="transparent">#00FFFFFF</color>
 </resources>

@@ -35,9 +35,27 @@ public class EditNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_note);
         Context context = getApplicationContext();
 
-        nameField = findViewById(R.id.editnotename);
-        contentField = findViewById(R.id.editnotecontent);
-        weightField = findViewById(R.id.editnoteweight);
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            String noteTitle = extras.getString("note");
+            System.out.println("NoteTitle: " + noteTitle);
+            nameField = findViewById(R.id.editnotename);
+            contentField = findViewById(R.id.editnotecontent);
+            weightField = findViewById(R.id.editnoteweight);
+            SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
+            nameField.setText(noteTitle.split("_")[1]);
+            System.out.println(Notes.fromString(sharedPref.getString(noteTitle, "")));
+            contentField.setText(Notes.fromString(sharedPref.getString(noteTitle, "")).getContent());
+            weightField.setText("" + Notes.fromString(sharedPref.getString(noteTitle, "")).getWeight());
+
+        } else {
+            nameField = findViewById(R.id.editnotename);
+            contentField = findViewById(R.id.editnotecontent);
+            weightField = findViewById(R.id.editnoteweight);
+        }
+
+
 
         returnToNoteScreenButton = findViewById(R.id.returntonotedisplaybutton);
         attemptEditButton = findViewById(R.id.finalizenotebutton);
@@ -47,6 +65,12 @@ public class EditNoteActivity extends AppCompatActivity {
             String name = nameField.getText().toString();
             String content = contentField.getText().toString();
             String weight = weightField.getText().toString();
+
+            Bundle data = getIntent().getExtras();
+            String previousNoteTitle = "";
+            if (data != null) {
+                previousNoteTitle = data.getString("note");
+            }
 
             try {
                 int weightAsInt = Integer.parseInt(weight);
@@ -72,6 +96,11 @@ public class EditNoteActivity extends AppCompatActivity {
                         editor.putString("note_" + note.getTitle(), noteAsString);
                     }
                 }
+
+                if (!previousNoteTitle.isEmpty() && !previousNoteTitle.equals(name)) {
+                    editor.remove("note_" + previousNoteTitle);
+                }
+
                 editor.apply();
 
                 Intent switchActivityIntent = new Intent(context, NotesActivity.class);
