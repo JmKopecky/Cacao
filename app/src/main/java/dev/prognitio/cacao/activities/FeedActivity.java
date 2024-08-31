@@ -16,9 +16,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.Executors;
 
 import dev.prognitio.cacao.MiscellaneousFactsCurator;
 import dev.prognitio.cacao.Notes;
@@ -152,9 +155,34 @@ public class FeedActivity extends AppCompatActivity {
                 layout.addView(content);
             }
 
-        } else {
-            //show content from selected topics
-            HashMap<String, String> apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
+        } else { //feed content pulled from api
+            Executors.newSingleThreadExecutor().execute(() -> {
+
+                HashMap<String, String> apiFactInfo = new HashMap<>();
+                try {
+                    apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                final HashMap<String, String> data = apiFactInfo;
+
+                runOnUiThread(() -> {
+                    System.out.println(data);
+
+                    TextView title = new TextView(context);title.setText(data.get("title"));
+                    title.setTextSize(22);
+                    title.setTextColor(getColor(R.color.text_color));
+                    title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
+                    title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                    TextView content = new TextView(context);content.setText(data.get("body"));
+                    content.setTextSize(18);
+                    content.setTextColor(getColor(R.color.text_color));
+                    content.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
+                    content.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                    layout.addView(title);
+                    layout.addView(content);
+                });
+            });
         }
 
         return layout;
