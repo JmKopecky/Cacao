@@ -9,7 +9,7 @@
     tools:context=".activities.ProfileLaunch">
 
     <ImageView
-        android:id="@+id/cacao_app_logo_profile_launch"
+        android:id="@+id/cacao_app_logo_course_setup"
         android:layout_width="181dp"
         android:layout_height="169dp"
         android:layout_marginTop="28dp"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/untitled_design__1_" />
 
     <TextView
-        android:id="@+id/profiletitle"
+        android:id="@+id/enter_course_data_text"
         android:layout_width="363dp"
         android:layout_height="46dp"
         android:layout_marginTop="44dp"
@@ -32,7 +32,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_profile_launch" />
+        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_course_setup" />
 
     <EditText
         android:id="@+id/profilenamefield"
@@ -49,7 +49,7 @@
         android:textColorLink="@color/secondary_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profiletitle" />
+        app:layout_constraintTop_toBottomOf="@+id/enter_course_data_text" />
 
     <EditText
         android:id="@+id/profileusernamefield"
