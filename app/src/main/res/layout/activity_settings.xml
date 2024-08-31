@@ -9,20 +9,33 @@
     android:orientation="vertical"
     tools:context=".activities.WelcomeActivity$settings">
 
-    <TextView
-        android:id="@+id/title_settings"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/secondary_background"
-        android:text="Settings"
-        android:textAlignment="center"
-        android:textColor="@color/text_color"
-        android:textSize="40sp"
-        android:textStyle="bold" />
+        android:layout_height="70dp"
+        android:orientation="horizontal">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="24dp" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="55dp"
+            android:background="@color/secondary_background"
+            android:backgroundTint="@color/secondary_background"
+            android:src="@drawable/settings_icon"
+            android:tint="@color/main_background" />
+
+        <TextView
+            android:id="@+id/title_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:height="55dp"
+            android:background="@color/secondary_color"
+            android:fontFamily="sans-serif-black"
+            android:text="SETTINGS"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_color"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/name_setting"

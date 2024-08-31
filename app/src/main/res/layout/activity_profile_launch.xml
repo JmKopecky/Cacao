@@ -8,58 +8,37 @@
     android:background="@color/main_background"
     tools:context=".activities.ProfileLaunch">
 
+    <ImageView
+        android:id="@+id/cacao_app_logo_profile_launch"
+        android:layout_width="181dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/untitled_design__1_" />
+
     <TextView
         android:id="@+id/profiletitle"
         android:layout_width="363dp"
         android:layout_height="46dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/audiowide"
-        android:text="Create Your Profile!"
+        android:text="Create your account"
         android:textAlignment="center"
         android:textColor="@color/text_color"
-        android:textSize="30sp"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/featurelist" />
-
-    <TextView
-        android:id="@+id/profileexplanation"
-        android:layout_width="360dp"
-        android:layout_height="114dp"
-        android:fontFamily="@font/audiowide"
-        android:text="Here's the Basic Features:"
-        android:textAlignment="center"
-        android:textColor="@color/text_color"
-        android:textSize="40sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
-
-    <TextView
-        android:id="@+id/featurelist"
-        android:layout_width="363dp"
-        android:layout_height="172dp"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto_mono"
-        android:text="> Gamified Assignments and Ranking System \n> Custom Generated Flashcards and Tests \n> One Stop Shop for all your Academic Needs!"
-        android:textAlignment="viewStart"
-        android:textColor="@color/secondary_color"
-        android:textSize="20sp"
+        android:textSize="27sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileexplanation" />
+        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_profile_launch" />
 
     <EditText
         android:id="@+id/profilenamefield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:fontFamily="@font/audiowide"
         android:hint="Name"
@@ -76,6 +55,7 @@
         android:id="@+id/profileusernamefield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:ems="10"
         android:fontFamily="@font/audiowide"
         android:hint="Username"
@@ -92,6 +72,7 @@
         android:id="@+id/profileemailfield"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:fontFamily="@font/audiowide"
         android:hint="Email"
@@ -106,20 +87,27 @@
 
     <Button
         android:id="@+id/proceedtopreferences"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/accent_color"
+        android:layout_width="284dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="45dp"
+        android:backgroundTint="@color/secondary_background"
         android:fontFamily="@font/roboto_mono"
-        android:radius="10dp"
-        android:text="Next"
-        android:textColor="@color/secondary_color"
+        android:text="Continue"
+        android:textColorLink="@color/secondary_background"
         android:textSize="24sp"
-        app:circularflow_radiusInDP="100"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileemailfield" />
+        app:layout_constraintTop_toBottomOf="@+id/profileemailfield"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="184dp"
+        android:layout_height="174dp"
+        app:srcCompat="@drawable/untitled_design__6_"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="555dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
