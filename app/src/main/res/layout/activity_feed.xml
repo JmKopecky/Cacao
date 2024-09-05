@@ -10,42 +10,6 @@
     android:orientation="vertical"
     tools:context=".activities.FeedActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/secondary_background">
-
-        <ImageButton
-            android:id="@+id/files"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="#00FFFFFF"
-            android:scaleX="2"
-            android:scaleY="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/file_button" />
-
-        <TextView
-            android:id="@+id/cacao_text"
-            android:layout_width="119dp"
-            android:layout_height="49dp"
-            android:fontFamily="@font/chewy"
-            android:text="CACAO"
-            android:textColor="@color/text_color"
-            android:textColorLink="@color/text_color"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/files"
-            app:layout_constraintHorizontal_bias="0.073"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:id="@+id/feedscrollarea"
         android:layout_width="match_parent"

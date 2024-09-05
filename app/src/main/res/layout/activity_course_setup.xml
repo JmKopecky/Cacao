@@ -9,7 +9,7 @@
     tools:context=".activities.CourseSetup">
 
     <Button
-        android:id="@+id/proceedtopreferences"
+        android:id="@+id/finishSetupButton"
         android:layout_width="284dp"
         android:layout_height="78dp"
         android:layout_marginBottom="138dp"
@@ -38,10 +38,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_course_setup" />
+        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_finish" />
 
     <ImageView
-        android:id="@+id/cacao_app_logo_course_setup"
+        android:id="@+id/cacao_app_logo_finish"
         android:layout_width="139dp"
         android:layout_height="130dp"
         android:layout_marginTop="16dp"
