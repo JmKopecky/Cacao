@@ -9,7 +9,7 @@
     tools:context=".activities.PreferencesSelection">
 
     <Button
-        android:id="@+id/proceedtopreferences"
+        android:id="@+id/finishSetupButton"
         android:layout_width="284dp"
         android:layout_height="78dp"
         android:backgroundTint="@color/secondary_background"
