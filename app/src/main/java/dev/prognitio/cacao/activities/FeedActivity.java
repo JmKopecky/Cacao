@@ -160,7 +160,8 @@ public class FeedActivity extends AppCompatActivity {
 
                 HashMap<String, String> apiFactInfo = new HashMap<>();
                 try {
-                    apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context);
+                    SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.userpref_key), Context.MODE_PRIVATE);
+                    apiFactInfo = MiscellaneousFactsCurator.curateFeedTile(context, sharedPref);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
