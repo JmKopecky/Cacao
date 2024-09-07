@@ -122,7 +122,7 @@ public class MiscellaneousFactsCurator {
         //String htmlReturn = result.toString()
         ArrayList<String> definitions = new ArrayList<>();
         boolean hasSkippedFirst = false;
-        for (String defString : result.toString().split("definitions\":\\[\\{")) { //"definitions":[{
+        for (String defString : result.toString().split("definitions\":\\[\\{")) {
             if (!hasSkippedFirst) {
                 hasSkippedFirst = true;
                 continue;
