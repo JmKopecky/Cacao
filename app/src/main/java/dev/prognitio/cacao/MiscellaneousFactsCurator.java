@@ -108,20 +108,8 @@ public class MiscellaneousFactsCurator {
     }
 
     public static String getCatFacts(String linkData) throws IOException {
-        StringBuilder wordBuilder = new StringBuilder();
-        URL url = new URL(linkData.split("\\|")[0]);
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(connection.getInputStream()))) {
-            for (String line; (line = reader.readLine()) != null; ) {
-                wordBuilder.append(line);
-            }
-        }
-        String word = wordBuilder.substring(2, wordBuilder.length() - 2);
-
         StringBuilder result = new StringBuilder();
-        URL catUrl = new URL(linkData.split("\\|")[1] + word);
+        URL catUrl = new URL(linkData);
         HttpURLConnection connectionCat = (HttpURLConnection) catUrl.openConnection();
         connectionCat.setRequestMethod("GET");
         try (BufferedReader reader = new BufferedReader(
@@ -143,10 +131,7 @@ public class MiscellaneousFactsCurator {
             cats.add(defString.split("\",\"")[0]);
         }
         String output = "";
-        output += "Word: " + word + "\n";
-        for (String def : cats) {
-            output += def + "\n";
-        }
+        output += cats.get(0);
         return output;
     }
 
