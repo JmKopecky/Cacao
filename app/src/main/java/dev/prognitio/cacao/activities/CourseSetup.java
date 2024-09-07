@@ -22,7 +22,6 @@ public class CourseSetup extends AppCompatActivity {
     EditText courseGPAInput;
     EditText courseGradeInput;
 
-    ImageButton importCourseDataButton;
     ImageButton finalizeCourseDataButton;
     ImageButton addCourseButton;
 
@@ -39,7 +38,6 @@ public class CourseSetup extends AppCompatActivity {
         courseGPAInput = findViewById(R.id.inputGPAWeight);
         courseGradeInput = findViewById(R.id.inputGrade);
 
-        importCourseDataButton = findViewById(R.id.importCourseDataButton);
         finalizeCourseDataButton = findViewById(R.id.finalizeCoursesButton);
         addCourseButton = findViewById(R.id.addCourseButton);
 
@@ -137,11 +135,7 @@ public class CourseSetup extends AppCompatActivity {
         });
 
 
-        importCourseDataButton.setOnClickListener(view -> {
-            //just switch to the importCourseDataActivity here and handle everything there for conciseness
-            Intent switchActivityIntent = new Intent(context, ImportCourseDataActivity.class);
-            startActivity(switchActivityIntent);
-        });
+
 
 
     }

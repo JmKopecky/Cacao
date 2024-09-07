@@ -47,18 +47,6 @@
         app:srcCompat="@drawable/untitled_design__1_" />
 
     <ImageButton
-        android:id="@+id/importCourseDataButton"
-        android:layout_width="78dp"
-        android:layout_height="76dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="#00FFFFFF"
-        android:tint="@color/accent_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addCourseButton"
-        app:layout_constraintTop_toBottomOf="@+id/inputGrade"
-        app:srcCompat="@drawable/baseline_cloud_download_24" />
-
-    <ImageButton
         android:id="@+id/addCourseButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -66,6 +54,7 @@
         android:backgroundTint="#00FFFFFF"
         android:tint="@color/accent_color"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputGrade"
         app:srcCompat="@drawable/baseline_add_circle_outline_24" />
@@ -76,7 +65,8 @@
         android:layout_height="80dp"
         android:backgroundTint="#00FFFFFF"
         android:tint="@color/accent_color"
-        app:layout_constraintEnd_toStartOf="@+id/addCourseButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputGrade"
         app:srcCompat="@drawable/baseline_check_circle_24" />
