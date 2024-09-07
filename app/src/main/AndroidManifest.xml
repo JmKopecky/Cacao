@@ -37,9 +37,6 @@
             android:exported="false"
             android:theme="@style/Theme.Cacao" />
         <activity
-            android:name=".activities.ImportCourseDataActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.FeedActivity"
             android:exported="false" />
         <activity

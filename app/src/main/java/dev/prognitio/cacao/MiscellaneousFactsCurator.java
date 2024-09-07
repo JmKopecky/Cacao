@@ -43,7 +43,6 @@ public class MiscellaneousFactsCurator {
 
         int optionSpaceSize = selected.size();
         int targetIndex = (int) (random.nextDouble() * optionSpaceSize);
-        Map.Entry<String, String> target = null;
         String key = "";
         String value = "";
 
@@ -120,10 +119,10 @@ public class MiscellaneousFactsCurator {
         } catch (FileNotFoundException e) {
             return "filenotfound";
         }
-        System.out.println(result);
+        //String htmlReturn = result.toString()
         ArrayList<String> definitions = new ArrayList<>();
         boolean hasSkippedFirst = false;
-        for (String defString : result.toString().split("definitions\":\\[\\{")) {
+        for (String defString : result.toString().split("definitions\":\\[\\{")) { //"definitions":[{
             if (!hasSkippedFirst) {
                 hasSkippedFirst = true;
                 continue;
