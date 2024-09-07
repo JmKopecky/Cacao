@@ -33,11 +33,11 @@ public class PreferencesSelection extends AppCompatActivity {
         setContentView(R.layout.activity_preferences_selection);
         Context context = getApplicationContext();
 
-        layout = findViewById(R.id.scrolllayout);
+        layout = findViewById(R.id.preferencesscrolllayout);
 
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) layout.getLayoutParams();
         params.setMargins(0, 10, 0, 0);
-        proceedButton = findViewById(R.id.submitpreferencesbutton);
+        proceedButton = findViewById(R.id.finishSetupButton);
 
 
         for (Map.Entry<String,String> entry : MiscellaneousFactsCurator.factOption.entrySet()) {
