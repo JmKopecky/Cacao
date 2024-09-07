@@ -95,19 +95,20 @@
         android:text="Continue"
         android:textColorLink="@color/secondary_background"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileemailfield"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/profileemailfield" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="184dp"
         android:layout_height="174dp"
-        app:srcCompat="@drawable/untitled_design__6_"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="555dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finishSetupButton"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/untitled_design__6_" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
