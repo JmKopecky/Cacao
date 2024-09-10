@@ -8,55 +8,41 @@
     android:background="@color/main_background"
     android:backgroundTint="@color/main_background"
     android:orientation="vertical"
+    android:textAlignment="center"
     tools:context=".activities.CalendarActivity">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_bar"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:background="@color/secondary_background">
-
-        <ImageButton
-            android:id="@+id/files"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#00FFFFFF"
-            android:scaleX="2"
-            android:scaleY="2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/file_button" />
-
-        <TextView
-            android:id="@+id/cacao_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chewy"
-            android:text="CACAO"
-            android:textColor="@color/text_color"
-            android:textColorLink="@color/text_color"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/files"
-            app:layout_constraintHorizontal_bias="0.073"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:id="@+id/calendarscrollarea"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_weight="0.7">
+        android:layout_weight="0.7"
+        android:addStatesFromChildren="false"
+        android:alwaysDrawnWithCache="true"
+        android:backgroundTint="@color/main_background">
 
         <LinearLayout
             android:id="@+id/calendarscrolllayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/main_background"
+                android:drawableTint="#D33A3A"
+                android:editable="true"
+                android:elegantTextHeight="false"
+                android:ems="10"
+                android:fontFamily="@font/chewy"
+                android:inputType="text"
+                android:text="Calendar"
+                android:textAlignment="center"
+                android:textColor="@color/accent_color"
+                android:textSize="60sp" />
+        </LinearLayout>
     </ScrollView>
 
 
