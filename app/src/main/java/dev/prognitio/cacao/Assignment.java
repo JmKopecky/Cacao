@@ -1,5 +1,13 @@
 package dev.prognitio.cacao;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkRequest;
+import androidx.work.Worker;
+import androidx.work.WorkerParameters;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -41,6 +49,14 @@ public class Assignment {
             case 12: return "December";
         }
         return "DOOMSDAY";
+    }
+
+
+    public static void scheduleNotifications(Assignment assignment, Context context) {
+        WorkRequest uploadWorkRequest =
+                new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
+                        // Additional configuration
+                        .build();
     }
 
 
@@ -89,3 +105,4 @@ public class Assignment {
         this.details = details;
     }
 }
+

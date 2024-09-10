@@ -57,6 +57,8 @@ public class AddAssignmentActivity extends AppCompatActivity {
             }
             Assignment assignment = new Assignment(course, date, title, detail);
 
+            Assignment.scheduleNotifications(assignment, context);
+
             String assignmentAsString = assignment.toString();
 
             System.out.println(assignment.getDueDate());
