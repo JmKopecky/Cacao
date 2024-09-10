@@ -46,6 +46,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <ScrollView
         android:id="@+id/calendarscrollarea"
         android:layout_width="match_parent"
@@ -58,7 +59,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottom_bar"
