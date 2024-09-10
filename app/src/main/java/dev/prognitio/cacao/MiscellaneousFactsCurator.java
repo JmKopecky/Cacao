@@ -27,7 +27,7 @@ public class MiscellaneousFactsCurator {
         //Vocab: supplied link finds word, extra link finds dictionary entry for word.
         factOption.put("Vocabulary", "https://random-word-api.herokuapp.com/word?lang=en" + "|" + "https://api.dictionaryapi.dev/api/v2/entries/en/");
         factOption.put("Math Facts", "http://numbersapi.com/random/math");
-        factOption.put("Cat Facts", "https://cat-fact.herokuapp.com/facts/");
+        factOption.put("Dog Facts", "https://dogapi.dog/api/v2/facts?limit=1");
     }
 
     public static HashMap<String, String> curateFeedTile(Context context, SharedPreferences sharedPref) throws IOException {
@@ -82,11 +82,11 @@ public class MiscellaneousFactsCurator {
             return result;
         }
 
-        if (target.equals("Cat Facts")) {
+        if (target.equals("Dog Facts")) {
             boolean hasSucceeded = false;
             String result = "";
             while (!hasSucceeded) {
-                result = getCatFacts(link);
+                result = getDogFacts(link);
                 if (!result.equals("filenotfound")) {
                     hasSucceeded = true;
                 }
@@ -107,13 +107,13 @@ public class MiscellaneousFactsCurator {
         return result.toString();
     }
 
-    public static String getCatFacts(String linkData) throws IOException {
+    public static String getDogFacts(String linkData) throws IOException {
         StringBuilder result = new StringBuilder();
-        URL catUrl = new URL(linkData);
-        HttpURLConnection connectionCat = (HttpURLConnection) catUrl.openConnection();
-        connectionCat.setRequestMethod("GET");
+        URL dogUrl = new URL(linkData);
+        HttpURLConnection connectionDog = (HttpURLConnection) dogUrl.openConnection();
+        connectionDog.setRequestMethod("GET");
         try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(connectionCat.getInputStream()))) {
+                new InputStreamReader(connectionDog.getInputStream()))) {
             for (String line; (line = reader.readLine()) != null; ) {
                 result.append(line);
             }
@@ -121,17 +121,17 @@ public class MiscellaneousFactsCurator {
             return "filenotfound";
         }
 
-        ArrayList<String> cats = new ArrayList<>();
+        ArrayList<String> dogs = new ArrayList<>();
         boolean hasSkippedFirst = false;
-        for (String defString : result.toString().split("text\":")) {
+        for (String defString : result.toString().split("body\":\"")) {
             if (!hasSkippedFirst) {
                 hasSkippedFirst = true;
                 continue;
             }
-            cats.add(defString.split("\",\"")[0]);
+            dogs.add(defString.split("\"\\}")[0]);
         }
         String output = "";
-        output += cats.get(0);
+        output += dogs.get(0);
         return output;
     }
 
