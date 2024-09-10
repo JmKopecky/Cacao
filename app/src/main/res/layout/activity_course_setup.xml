@@ -8,66 +8,68 @@
     android:foregroundTint="@color/accent_color"
     tools:context=".activities.CourseSetup">
 
-    <ImageButton
-        android:id="@+id/importCourseDataButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#00FFFFFF"
-        android:tint="@color/accent_color"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/finishSetupButton"
+        android:layout_width="284dp"
+        android:layout_height="78dp"
+        android:backgroundTint="@color/secondary_background"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Continue"
+        android:textColorLink="@color/secondary_background"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/addCourseButton"
-        app:srcCompat="@drawable/baseline_cloud_download_24" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addCourseButton" />
+
+    <TextView
+        android:id="@+id/enter_course_data_text"
+        android:layout_width="350dp"
+        android:layout_height="73dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Enter course Data from your classes"
+        android:textAlignment="center"
+        android:textColor="@color/text_color"
+        android:textSize="27sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_finish" />
+
+    <ImageView
+        android:id="@+id/cacao_app_logo_finish"
+        android:layout_width="139dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/untitled_design__1_" />
 
     <ImageButton
         android:id="@+id/addCourseButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="1dp"
         android:backgroundTint="#00FFFFFF"
         android:tint="@color/accent_color"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputGrade"
         app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
     <ImageButton
         android:id="@+id/finalizeCoursesButton"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
         android:backgroundTint="#00FFFFFF"
         android:tint="@color/accent_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addCourseButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_check_circle_24" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@color/secondary_background"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/coursesetupdesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/audiowide"
-            android:text="Enter the data for a class, then press the plus button to save and add another. Alternatively, import data from GCCISD portal. "
-            android:textAlignment="center"
-            android:textColor="@color/secondary_color"
-            android:textSize="19sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/inputGrade"
+        app:srcCompat="@drawable/baseline_check_circle_24" />
 
     <EditText
         android:id="@+id/inputClassName"
@@ -80,20 +82,16 @@
         android:foregroundTint="@color/text_color"
         android:hint="Course Name"
         android:inputType="textPersonName"
-        android:textColorHint="@color/text_color"
+        android:textColorHint="@color/secondary_color"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintTop_toBottomOf="@+id/enter_course_data_text" />
 
     <EditText
         android:id="@+id/inputSemesterNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:backgroundTint="@color/text_color"
         android:drawableTint="@color/text_color"
         android:ems="10"
@@ -101,20 +99,16 @@
         android:foregroundTint="@color/text_color"
         android:hint="Semester #"
         android:inputType="number"
-        android:textColorHint="@color/text_color"
+        android:textColorHint="@color/secondary_color"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputClassName"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/inputClassName" />
 
     <EditText
         android:id="@+id/inputGPAWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:backgroundTint="@color/text_color"
         android:drawableTint="@color/text_color"
         android:ems="10"
@@ -122,20 +116,16 @@
         android:foregroundTint="@color/text_color"
         android:hint="GPA Weight"
         android:inputType="number"
-        android:textColorHint="@color/text_color"
+        android:textColorHint="@color/secondary_color"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSemesterNumber"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/inputSemesterNumber" />
 
     <EditText
         android:id="@+id/inputGrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:backgroundTint="@color/text_color"
         android:drawableTint="@color/text_color"
         android:ems="10"
@@ -143,12 +133,19 @@
         android:foregroundTint="@color/text_color"
         android:hint="Grade"
         android:inputType="number|numberDecimal"
-        android:textColorHint="@color/text_color"
+        android:textColorHint="@color/secondary_color"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/addCourseButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputGPAWeight"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/inputGPAWeight" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="188dp"
+        android:layout_height="227dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finishSetupButton"
+        app:srcCompat="@drawable/untitled_design__8_" />
 </androidx.constraintlayout.widget.ConstraintLayout>

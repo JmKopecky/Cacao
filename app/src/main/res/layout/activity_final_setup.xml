@@ -10,53 +10,64 @@
 
     <Button
         android:id="@+id/finishSetupButton"
-        android:layout_width="264dp"
-        android:layout_height="128dp"
-        android:layout_marginBottom="148dp"
-        android:background="@drawable/rounded_button"
-        android:backgroundTint="@color/accent_color"
+        android:layout_width="284dp"
+        android:layout_height="78dp"
+        android:backgroundTint="@color/secondary_background"
         android:fontFamily="@font/roboto_mono"
-        android:radius="10dp"
-
-        android:text="FINISH SETUP"
-        android:textColor="@color/secondary_color"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:cornerRadius="40dp"
+        android:text="Continue"
+        android:textColorLink="@color/secondary_background"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WelcomeSloganText" />
+        app:layout_constraintTop_toBottomOf="@+id/sub_text" />
+
+    <ImageView
+        android:id="@+id/cacao_app_logo_finish"
+        android:layout_width="211dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/untitled_design__1_" />
 
     <TextView
         android:id="@+id/main_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
         android:fontFamily="@font/audiowide"
         android:text="Almost done!"
         android:textAlignment="center"
         android:textColor="@color/text_color"
-        android:textSize="55sp"
-        app:layout_constraintBottom_toTopOf="@+id/sub_text"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintTop_toBottomOf="@+id/cacao_app_logo_finish" />
 
     <TextView
         android:id="@+id/sub_text"
         android:layout_width="350dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginTop="9dp"
         android:fontFamily="@font/roboto_mono"
         android:text="Your Cacao Setup is Almost Complete!"
         android:textAlignment="center"
-        android:textColor="@color/text_color"
+        android:textColor="@color/secondary_color"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/finishSetupButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_test" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="195dp"
+        android:layout_height="343dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finishSetupButton"
+        app:srcCompat="@drawable/untitled_design__9_" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

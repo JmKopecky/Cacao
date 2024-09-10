@@ -13,6 +13,8 @@ import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import java.util.Map;
+
 import dev.prognitio.cacao.MiscellaneousFactsCurator;
 import dev.prognitio.cacao.R;
 import dev.prognitio.cacao.log.LogType;
@@ -31,14 +33,15 @@ public class PreferencesSelection extends AppCompatActivity {
         setContentView(R.layout.activity_preferences_selection);
         Context context = getApplicationContext();
 
-        layout = findViewById(R.id.scrolllayout);
+        layout = findViewById(R.id.preferencesscrolllayout);
 
         FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) layout.getLayoutParams();
         params.setMargins(0, 10, 0, 0);
-        proceedButton = findViewById(R.id.submitpreferencesbutton);
+        proceedButton = findViewById(R.id.finishSetupButton);
 
 
-        for (String feedOption : MiscellaneousFactsCurator.factOption) {
+        for (Map.Entry<String,String> entry : MiscellaneousFactsCurator.factOption.entrySet()) {
+            String feedOption = entry.getKey();
             CheckedTextView toAdd = new CheckedTextView(context);
             toAdd.setText(feedOption);
             toAdd.setTextSize(20);

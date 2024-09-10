@@ -31,7 +31,7 @@ public class ProfileLaunch extends AppCompatActivity {
 
         Context context = getApplicationContext();
 
-        proceedToPreferencesButton = findViewById(R.id.proceedtopreferences);
+        proceedToPreferencesButton = findViewById(R.id.finishSetupButton);
         nameText = findViewById(R.id.profilenamefield);
         usernameText = findViewById(R.id.profileusernamefield);
         emailText = findViewById(R.id.profileemailfield);
