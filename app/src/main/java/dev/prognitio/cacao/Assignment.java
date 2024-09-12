@@ -3,7 +3,9 @@ package dev.prognitio.cacao;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
@@ -13,8 +15,13 @@ import com.google.gson.GsonBuilder;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class Assignment {
 
@@ -53,10 +60,23 @@ public class Assignment {
 
 
     public static void scheduleNotifications(Assignment assignment, Context context) {
-        WorkRequest uploadWorkRequest =
+
+        Instant instant1 = Instant.parse("2020-07-10T15:00:00Z");
+        Instant instant2 = Instant.parse("2019-04-21T05:25:00Z");
+
+        LocalDate due = assignment.getDateAsLocalDate();
+        LocalDate now = Instant.now().atZone(ZoneId.systemDefault()).toLocalDate();
+        long between = ChronoUnit.HOURS.between(now, due);
+
+
+        WorkRequest sendNotifWorker =
                 new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
-                        // Additional configuration
+                        .setInputData(
+                                new Data.Builder().putString("assignment", assignment.toString()).build())
+                        .setInitialDelay(between, TimeUnit.HOURS)
                         .build();
+
+        WorkManager.getInstance(context).enqueue(sendNotifWorker);
     }
 
 
@@ -79,6 +99,10 @@ public class Assignment {
 
     public String getDueDate() {
         return dueDate;
+    }
+
+    public LocalDate getDateAsLocalDate() {
+        return LocalDate.of(Integer.parseInt(dueDate.split("/")[0]), Integer.parseInt(dueDate.split("/")[1]), Integer.parseInt(dueDate.split("/")[2]));
     }
 
     public String getApplicableCourse() {
