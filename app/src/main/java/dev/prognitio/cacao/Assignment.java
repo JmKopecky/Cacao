@@ -61,19 +61,16 @@ public class Assignment {
 
     public static void scheduleNotifications(Assignment assignment, Context context) {
 
-        Instant instant1 = Instant.parse("2020-07-10T15:00:00Z");
-        Instant instant2 = Instant.parse("2019-04-21T05:25:00Z");
-
         LocalDate due = assignment.getDateAsLocalDate();
         LocalDate now = Instant.now().atZone(ZoneId.systemDefault()).toLocalDate();
         long between = ChronoUnit.HOURS.between(now, due);
-
+        System.out.println(between);
 
         WorkRequest sendNotifWorker =
                 new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
                         .setInputData(
                                 new Data.Builder().putString("assignment", assignment.toString()).build())
-                        .setInitialDelay(between, TimeUnit.HOURS)
+                        .setInitialDelay(between, TimeUnit.SECONDS)
                         .build();
 
         WorkManager.getInstance(context).enqueue(sendNotifWorker);
