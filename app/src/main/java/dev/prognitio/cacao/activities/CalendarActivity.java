@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -90,7 +91,7 @@ public class CalendarActivity extends AppCompatActivity {
             for (Assignment assignment : relevantAssignments) {
 
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, (int) (100 * density)
+                        LinearLayout.LayoutParams.MATCH_PARENT, (int) (150 * density)
                 );
                 params.setMargins((int) (10 * density), (int) (10 * density), (int) (10 * density), (int) (10 * density));
                 LinearLayout layout = new LinearLayout(context);
@@ -99,7 +100,7 @@ public class CalendarActivity extends AppCompatActivity {
 
                 //format tile
                 layout.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
-                layout.setBackgroundColor(getColor(R.color.secondary_background));
+                layout.setBackgroundColor(getColor(R.color.main_background));
 
 
                 LinearLayout.LayoutParams paramsTopBar = new LinearLayout.LayoutParams(
@@ -108,35 +109,56 @@ public class CalendarActivity extends AppCompatActivity {
                 LinearLayout topBar = new LinearLayout(context);
                 topBar.setLayoutParams(paramsTopBar);
                 topBar.setOrientation(LinearLayout.HORIZONTAL);
+                topBar.setBackgroundColor(getColor(R.color.secondary_background));
+
+                LinearLayout mediumBar = new LinearLayout(context);
+                mediumBar.setLayoutParams(paramsTopBar);
+                mediumBar.setOrientation(LinearLayout.HORIZONTAL);
+                mediumBar.setBackgroundColor(getColor(R.color.secondary_background));
+
+                LinearLayout bottomBar = new LinearLayout(context);
+                bottomBar.setLayoutParams(paramsTopBar);
+                bottomBar.setOrientation(LinearLayout.HORIZONTAL);
+                bottomBar.setBackgroundColor(getColor(R.color.secondary_background));
+
+                TextView title = new TextView(context);title.setText(assignment.getTitle());
+                title.setTextSize(20);
+                title.setTextColor(getColor(R.color.text_color));
+                title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
+                title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+
+                TextView course = new TextView(context);course.setText(assignment.getApplicableCourse());
+                course.setTextSize(18);
+                course.setTextColor(getColor(R.color.text_color));
+                course.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
+                course.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
 
                 TextView dueDate = new TextView(context);dueDate.setText(assignment.getDueDate());
                 dueDate.setTextSize(18);
                 dueDate.setTextColor(getColor(R.color.text_color));
                 dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 dueDate.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-                TextView course = new TextView(context);course.setText(assignment.getApplicableCourse());
-                course.setTextSize(18);
-                course.setTextColor(getColor(R.color.text_color));
-                course.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
-                course.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-                TextView title = new TextView(context);title.setText(assignment.getTitle());
-                title.setTextSize(20);
-                title.setTextColor(getColor(R.color.text_color));
-                title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
-                title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+
+                TextView teacher = new TextView(context);dueDate.setText(assignment.getDueDate());
+                dueDate.setTextSize(18);
+                dueDate.setTextColor(getColor(R.color.text_color));
+                dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
+                dueDate.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+
+                Button detailsButton = new Button(context);
+                detailsButton.setText("Details");
+                detailsButton.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                detailsButton.setBackgroundColor(getColor(R.color.secondary_background));
+
                 topBar.addView(title);
                 topBar.addView(course);
-                topBar.addView(dueDate);
-
-                TextView details = new TextView(context);details.setText(assignment.getDetails());
-                details.setTextSize(16);
-                details.setTextColor(getColor(R.color.text_color));
-                details.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
-                title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-
+                mediumBar.addView(teacher);
+                mediumBar.addView(dueDate);
+                bottomBar.addView(detailsButton);
 
                 layout.addView(topBar);
-                layout.addView(details);
+                layout.addView(mediumBar);
+                layout.addView(bottomBar);
 
                 scrollarea.addView(layout);
             }
