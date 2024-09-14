@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -110,45 +111,45 @@ public class CalendarActivity extends AppCompatActivity {
                 LinearLayout mediumBar = new LinearLayout(context);
                 mediumBar.setLayoutParams(paramsTopBar);
                 mediumBar.setOrientation(LinearLayout.HORIZONTAL);
-                mediumBar.setBackgroundColor(getColor(R.color.secondary_background));
+                mediumBar.setBackgroundColor(getColor(R.color.main_background));
 
                 LinearLayout bottomBar = new LinearLayout(context);
                 bottomBar.setLayoutParams(paramsTopBar);
                 bottomBar.setOrientation(LinearLayout.HORIZONTAL);
-                bottomBar.setBackgroundColor(getColor(R.color.secondary_background));
+                bottomBar.setBackgroundColor(getColor(R.color.main_background));
 
                 TextView title = new TextView(context);title.setText(assignment.getTitle());
-                title.setTextSize(20);
+                title.setTextSize(22);
                 title.setTextColor(getColor(R.color.text_color));
                 title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
+                title.setGravity(View.TEXT_ALIGNMENT_CENTER);
                 title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
 
-                TextView course = new TextView(context);course.setText(assignment.getApplicableCourse());
+                Button dueDate = new Button(context);
+                dueDate.setText(assignment.getDueDate());
+                dueDate.setTextSize(18);
+                dueDate.setTextColor(getColor(R.color.main_background));
+                dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
+                dueDate.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                dueDate.setBackgroundColor(getColor(R.color.text_color));
+
+                Button course = new Button(context);
+                course.setText(assignment.getApplicableCourse());
                 course.setTextSize(18);
-                course.setTextColor(getColor(R.color.text_color));
+                course.setTextColor(getColor(R.color.main_background));
                 course.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 course.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-
-                TextView dueDate = new TextView(context);dueDate.setText(assignment.getDueDate());
-                dueDate.setTextSize(18);
-                dueDate.setTextColor(getColor(R.color.text_color));
-                dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
-                dueDate.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-
-                TextView teacher = new TextView(context);dueDate.setText(assignment.getDueDate());
-                dueDate.setTextSize(18);
-                dueDate.setTextColor(getColor(R.color.text_color));
-                dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
-                dueDate.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                course.setBackgroundColor(getColor(R.color.text_color));
 
                 Button detailsButton = new Button(context);
-                detailsButton.setText("Details");
+                detailsButton.setText("EDIT DETAILS");
+                detailsButton.setTextSize(18);
+                dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 detailsButton.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-                detailsButton.setBackgroundColor(getColor(R.color.secondary_background));
+                detailsButton.setBackgroundColor(getColor(R.color.secondary_color));
 
                 topBar.addView(title);
-                topBar.addView(course);
-                mediumBar.addView(teacher);
+                mediumBar.addView(course);
                 mediumBar.addView(dueDate);
                 bottomBar.addView(detailsButton);
 
