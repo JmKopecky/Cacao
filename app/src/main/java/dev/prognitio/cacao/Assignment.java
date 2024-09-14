@@ -1,5 +1,7 @@
 package dev.prognitio.cacao;
 
+import static java.time.temporal.ChronoUnit.HOURS;
+
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -63,7 +65,7 @@ public class Assignment {
 
         LocalDate due = assignment.getDateAsLocalDate();
         LocalDate now = Instant.now().atZone(ZoneId.systemDefault()).toLocalDate();
-        long between = ChronoUnit.HOURS.between(now, due);
+        long between = now.until(due).getDays();
         System.out.println(between);
 
         WorkRequest sendNotifWorker =
