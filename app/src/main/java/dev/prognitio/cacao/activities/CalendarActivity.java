@@ -2,6 +2,9 @@ package dev.prognitio.cacao.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkRequest;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import dev.prognitio.cacao.Assignment;
+import dev.prognitio.cacao.AssignmentNotifWorker;
 import dev.prognitio.cacao.R;
 
 public class CalendarActivity extends AppCompatActivity {

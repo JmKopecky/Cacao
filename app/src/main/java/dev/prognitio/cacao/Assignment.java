@@ -1,19 +1,33 @@
 package dev.prognitio.cacao;
 
+import static java.time.temporal.ChronoUnit.HOURS;
+
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
+import androidx.work.Worker;
+import androidx.work.WorkerParameters;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class Assignment {
 
     String dueDate;
-
-
-
     String applicableCourse;
     String title;
     String details;
@@ -44,6 +58,24 @@ public class Assignment {
     }
 
 
+    public static void scheduleNotifications(Assignment assignment, Context context) {
+
+        LocalDate due = assignment.getDateAsLocalDate();
+        LocalDate now = Instant.now().atZone(ZoneId.systemDefault()).toLocalDate();
+        long between = now.until(due).getDays();
+        System.out.println(between);
+
+        WorkRequest sendNotifWorker =
+                new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
+                        .setInputData(
+                                new Data.Builder().putString("assignment", assignment.toString()).build())
+                        .setInitialDelay(between, TimeUnit.DAYS)
+                        .build();
+
+        WorkManager.getInstance(context).enqueue(sendNotifWorker);
+    }
+
+
     public String toString() {
         String result;
         GsonBuilder builder = new GsonBuilder();
@@ -63,6 +95,10 @@ public class Assignment {
 
     public String getDueDate() {
         return dueDate;
+    }
+
+    public LocalDate getDateAsLocalDate() {
+        return LocalDate.of(Integer.parseInt(dueDate.split("/")[0]), Integer.parseInt(dueDate.split("/")[1]), Integer.parseInt(dueDate.split("/")[2]));
     }
 
     public String getApplicableCourse() {
@@ -89,3 +125,4 @@ public class Assignment {
         this.details = details;
     }
 }
+
