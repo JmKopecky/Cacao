@@ -28,9 +28,6 @@ import java.util.concurrent.TimeUnit;
 public class Assignment {
 
     String dueDate;
-
-
-
     String applicableCourse;
     String title;
     String details;
@@ -72,7 +69,7 @@ public class Assignment {
                 new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
                         .setInputData(
                                 new Data.Builder().putString("assignment", assignment.toString()).build())
-                        .setInitialDelay(between, TimeUnit.SECONDS)
+                        .setInitialDelay(between, TimeUnit.DAYS)
                         .build();
 
         WorkManager.getInstance(context).enqueue(sendNotifWorker);
