@@ -39,7 +39,7 @@ public class PreferencesSelection extends AppCompatActivity {
         params.setMargins(0, 10, 0, 0);
         proceedButton = findViewById(R.id.finishSetupButton);
 
-
+        MiscellaneousFactsCurator.populateFactOption();
         for (Map.Entry<String,String> entry : MiscellaneousFactsCurator.factOption.entrySet()) {
             String feedOption = entry.getKey();
             CheckedTextView toAdd = new CheckedTextView(context);
@@ -70,7 +70,7 @@ public class PreferencesSelection extends AppCompatActivity {
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.userpref_key), Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
 
-            for (int i = 1; i < layout.getChildCount(); i++) {
+            for (int i = 0; i < layout.getChildCount(); i++) {
                 CheckedTextView element = (CheckedTextView) layout.getChildAt(i);
                 String key = "preferences_" + element.getText().toString();
                 Logger.log(key + " " + element.isChecked(), LogType.DEBUG, null);
