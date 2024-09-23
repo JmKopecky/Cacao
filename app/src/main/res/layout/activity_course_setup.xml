@@ -115,7 +115,7 @@
         android:fontFamily="@font/roboto_mono"
         android:foregroundTint="@color/text_color"
         android:hint="GPA Weight"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textColorHint="@color/secondary_color"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

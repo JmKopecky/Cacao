@@ -49,6 +49,13 @@ public class CourseDisplayActivity extends AppCompatActivity {
             courses.add(Course.fromString(sharedPref.getString("course_" + i, "")));
         }
 
+        double gpa = 0;
+        for (Course c : courses) {
+            gpa += c.calculateGPA();
+        }
+        gpa /= courses.size();
+        TextView gpaText = findViewById(R.id.gpa_text);gpaText.setText("GPA: " + gpa);
+
 
         float density = context.getResources().getDisplayMetrics().density; //get pixel density for properly sizing added elements
 

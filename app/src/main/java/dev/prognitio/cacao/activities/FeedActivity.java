@@ -112,7 +112,12 @@ public class FeedActivity extends AppCompatActivity {
         Random random = new Random();
         Double randomN = random.nextDouble();
 
-        if (randomN > 0.5) {
+
+        SharedPreferences checkNotes = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
+        boolean hasNotes = checkNotes.contains("noteregistry");
+
+
+        if (randomN > 0.5 && hasNotes) {
             //show notes
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
             ArrayList<Notes> notesList = new ArrayList<>();
