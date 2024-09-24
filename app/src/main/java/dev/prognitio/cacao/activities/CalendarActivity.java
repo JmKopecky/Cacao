@@ -107,6 +107,11 @@ public class CalendarActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams paramsTopBar = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT, (int) (50 * density)
                 );
+
+                LinearLayout.LayoutParams buttonWidth = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT
+                );
+
                 LinearLayout topBar = new LinearLayout(context);
                 topBar.setLayoutParams(paramsTopBar);
                 topBar.setOrientation(LinearLayout.HORIZONTAL);
@@ -123,6 +128,7 @@ public class CalendarActivity extends AppCompatActivity {
                 bottomBar.setBackgroundColor(getColor(R.color.main_background));
 
                 TextView title = new TextView(context);title.setText(assignment.getTitle());
+                title.setLayoutParams(buttonWidth);
                 title.setTextSize(22);
                 title.setTextColor(getColor(R.color.text_color));
                 title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
@@ -130,6 +136,7 @@ public class CalendarActivity extends AppCompatActivity {
                 title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
 
                 Button dueDate = new Button(context);
+                dueDate.getLayoutParams().width = (int) 0.5*mediumBar.getLayoutParams().width;
                 dueDate.setText(assignment.getDueDate());
                 dueDate.setTextSize(18);
                 dueDate.setTextColor(getColor(R.color.main_background));
@@ -138,6 +145,7 @@ public class CalendarActivity extends AppCompatActivity {
                 dueDate.setBackgroundColor(getColor(R.color.text_color));
 
                 Button course = new Button(context);
+                course.getLayoutParams().width = (int) 0.5*mediumBar.getLayoutParams().width;
                 course.setText(assignment.getApplicableCourse());
                 course.setTextSize(18);
                 course.setTextColor(getColor(R.color.main_background));
@@ -146,6 +154,7 @@ public class CalendarActivity extends AppCompatActivity {
                 course.setBackgroundColor(getColor(R.color.text_color));
 
                 Button detailsButton = new Button(context);
+                detailsButton.setLayoutParams(buttonWidth);
                 detailsButton.setText("EDIT DETAILS");
                 detailsButton.setTextSize(18);
                 dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
