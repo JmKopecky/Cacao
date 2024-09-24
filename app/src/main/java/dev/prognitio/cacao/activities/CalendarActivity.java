@@ -145,7 +145,7 @@ public class CalendarActivity extends AppCompatActivity {
                 dueDate.setBackgroundColor(getColor(R.color.text_color));
 
                 Button course = new Button(context);
-                course.getLayoutParams().width = (int) 0.5*mediumBar.getLayoutParams().width;
+                course.getLayoutParams().width = (int) (0.5*mediumBar.getLayoutParams().width);
                 course.setText(assignment.getApplicableCourse());
                 course.setTextSize(18);
                 course.setTextColor(getColor(R.color.main_background));
