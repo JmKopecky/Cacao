@@ -9,6 +9,20 @@
     android:paddingVertical="4dp"
     tools:context=".activities.CourseDisplayActivity">
 
+    <TextView
+        android:id="@+id/gpa_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/audiowide"
+        android:text="GPA: "
+        android:textColor="@color/text_color"
+        android:textColorLink="@color/text_color"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,56 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/top_bar"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/secondary_background">
-
-            <ImageButton
-                android:id="@+id/files"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#00FFFFFF"
-                android:scaleX="2"
-                android:scaleY="2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/file_button" />
-
-            <TextView
-                android:id="@+id/cacao_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/chewy"
-                android:text="CACAO"
-                android:textColor="@color/text_color"
-                android:textColorLink="@color/text_color"
-                android:textSize="40sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/files"
-                app:layout_constraintHorizontal_bias="0.073"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/gpa_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/audiowide"
-                android:text="GPA: "
-                android:textColor="@color/text_color"
-                android:textColorLink="@color/text_color"
-                android:textSize="28sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/files"
-                app:layout_constraintHorizontal_bias="0.7"
-                app:layout_constraintStart_toEndOf="@+id/cacao_text"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:id="@+id/coursescrollarea"
