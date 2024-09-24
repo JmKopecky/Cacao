@@ -2,6 +2,7 @@ package dev.prognitio.cacao.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.core.content.ContextCompat;
 import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkRequest;
@@ -9,6 +10,7 @@ import androidx.work.WorkRequest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -109,7 +111,7 @@ public class CalendarActivity extends AppCompatActivity {
                 );
 
                 LinearLayout.LayoutParams buttonWidth = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT
+                        0, (int) (50 * density), 1.0f
                 );
 
                 LinearLayout topBar = new LinearLayout(context);
@@ -136,30 +138,35 @@ public class CalendarActivity extends AppCompatActivity {
                 title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
 
                 Button dueDate = new Button(context);
-                dueDate.getLayoutParams().width = (int) 0.5*mediumBar.getLayoutParams().width;
+                dueDate.setLayoutParams(buttonWidth);
                 dueDate.setText(assignment.getDueDate());
                 dueDate.setTextSize(18);
                 dueDate.setTextColor(getColor(R.color.main_background));
                 dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 dueDate.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-                dueDate.setBackgroundColor(getColor(R.color.text_color));
+                dueDate.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.text_color)));
+                dueDate.setBackgroundResource(R.drawable.button_rounded_test);
 
                 Button course = new Button(context);
-                course.getLayoutParams().width = (int) (0.5*mediumBar.getLayoutParams().width);
+                course.setLayoutParams(buttonWidth);
+                System.out.println(mediumBar.getLayoutParams().width);
                 course.setText(assignment.getApplicableCourse());
                 course.setTextSize(18);
                 course.setTextColor(getColor(R.color.main_background));
                 course.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 course.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-                course.setBackgroundColor(getColor(R.color.text_color));
+                course.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.text_color)));
+
+                course.setBackgroundResource(R.drawable.button_rounded_test);
 
                 Button detailsButton = new Button(context);
                 detailsButton.setLayoutParams(buttonWidth);
                 detailsButton.setText("EDIT DETAILS");
                 detailsButton.setTextSize(18);
-                dueDate.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
+                detailsButton.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 detailsButton.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
-                detailsButton.setBackgroundColor(getColor(R.color.secondary_color));
+                detailsButton.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(context, R.color.secondary_color)));
+                detailsButton.setBackgroundResource(R.drawable.button_rounded_test);
 
                 topBar.addView(title);
                 mediumBar.addView(course);

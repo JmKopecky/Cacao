@@ -12,6 +12,7 @@
         android:id="@+id/finalizenotebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_mono"
         android:text="Confirm"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
