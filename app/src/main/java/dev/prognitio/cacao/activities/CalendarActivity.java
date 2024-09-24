@@ -113,6 +113,7 @@ public class CalendarActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams buttonWidth = new LinearLayout.LayoutParams(
                         0, (int) (50 * density), 1.0f
                 );
+                buttonWidth.setMargins(5, 5, 5, 5);
 
                 LinearLayout topBar = new LinearLayout(context);
                 topBar.setLayoutParams(paramsTopBar);
@@ -131,7 +132,7 @@ public class CalendarActivity extends AppCompatActivity {
 
                 TextView title = new TextView(context);title.setText(assignment.getTitle());
                 title.setLayoutParams(buttonWidth);
-                title.setTextSize(22);
+                title.setTextSize(30);
                 title.setTextColor(getColor(R.color.text_color));
                 title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
                 title.setGravity(View.TEXT_ALIGNMENT_CENTER);
