@@ -23,14 +23,24 @@ public class MiscellaneousFactsCurator {
 
     public static final HashMap<String, String> factOption = new HashMap<>();
 
-    static {
-        //Vocab: supplied link finds word, extra link finds dictionary entry for word.
-        factOption.put("Vocabulary", "https://random-word-api.herokuapp.com/word?lang=en" + "|" + "https://api.dictionaryapi.dev/api/v2/entries/en/");
-        factOption.put("Math Facts", "http://numbersapi.com/random/math");
-        factOption.put("Dog Facts", "https://dogapi.dog/api/v2/facts?limit=1");
+    public static void populateFactOption() {
+        if (!factOption.containsKey("Vocabulary")) {
+            factOption.put("Vocabulary", "https://random-word-api.herokuapp.com/word?lang=en" + "|" + "https://api.dictionaryapi.dev/api/v2/entries/en/");
+        }
+        if (!factOption.containsKey("Dog Facts")) {
+            factOption.put("Dog Facts", "https://dogapi.dog/api/v2/facts?limit=1");
+        }
+        if (!factOption.containsKey("Math Facts")) {
+            factOption.put("Math Facts", "http://numbersapi.com/random/math");
+        }
+        if (!factOption.containsKey("Programming Jokes")) {
+            factOption.put("Programming Jokes", "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt");
+        }
     }
 
     public static HashMap<String, String> curateFeedTile(Context context, SharedPreferences sharedPref) throws IOException {
+        populateFactOption();
+
         HashMap<String, String> map = new HashMap<>();
 
         Random random = new Random();
@@ -60,6 +70,7 @@ public class MiscellaneousFactsCurator {
 
         map.put("title", key);
 
+
         String body = "";
         body += retrieveData(value, key);
         map.put("body", body);
@@ -69,7 +80,6 @@ public class MiscellaneousFactsCurator {
 
 
     public static String retrieveData(String link, String target) throws IOException {
-
         if (target.equals("Vocabulary")) {
             boolean hasSucceeded = false;
             String result = "";

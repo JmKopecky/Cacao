@@ -81,7 +81,7 @@
                 android:layout_width="176dp"
                 android:layout_height="34dp"
                 android:fontFamily="@font/audiowide"
-                android:text="Header"
+                android:text="Notes"
                 android:textColor="@color/text_color"
                 android:textColorLink="@color/text_color"
                 android:textSize="34sp"
