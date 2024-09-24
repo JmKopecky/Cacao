@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -55,6 +56,11 @@ public class CourseDisplayActivity extends AppCompatActivity {
         }
         gpa /= courses.size();
         TextView gpaText = findViewById(R.id.gpa_text);gpaText.setText("GPA: " + gpa);
+
+        Button addCourseButton = findViewById(R.id.editcoursedatabutton);
+        addCourseButton.setOnClickListener(view -> {
+            //TODO
+        });
 
 
         float density = context.getResources().getDisplayMetrics().density; //get pixel density for properly sizing added elements
