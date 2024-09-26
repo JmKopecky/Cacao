@@ -8,11 +8,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 import dev.prognitio.cacao.Course;
@@ -37,6 +41,7 @@ public class CourseDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_course_display);
         Context context = getApplicationContext();
 
+
         scrollarea = findViewById(R.id.coursescrolllayout);
         scrollviewroot = findViewById(R.id.coursescrollarea);
 
@@ -54,7 +59,16 @@ public class CourseDisplayActivity extends AppCompatActivity {
             gpa += c.calculateGPA();
         }
         gpa /= courses.size();
-        TextView gpaText = findViewById(R.id.gpa_text);gpaText.setText("GPA: " + gpa);
+        BigDecimal asBigDecimal = new BigDecimal(Double.toString(gpa));
+        TextView gpaText = findViewById(R.id.gpa_text);gpaText.setText("GPA: " + asBigDecimal.round(new MathContext(3, RoundingMode.HALF_UP)).doubleValue());
+
+        Button addCourseButton = findViewById(R.id.editcoursedatabutton);
+        addCourseButton.setOnClickListener(view -> {
+            Intent switchActivityIntent = new Intent(context, CourseSetup.class);
+            switchActivityIntent.putExtra("edit_target", "none");
+            switchActivityIntent.putExtra("override_button", true);
+            startActivity(switchActivityIntent);
+        });
 
 
         float density = context.getResources().getDisplayMetrics().density; //get pixel density for properly sizing added elements
