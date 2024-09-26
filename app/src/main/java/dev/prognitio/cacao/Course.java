@@ -5,6 +5,10 @@ import com.google.gson.GsonBuilder;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+
 public class Course {
 
     public String courseName;
@@ -32,7 +36,8 @@ public class Course {
 
         output = GPA - ((100 - grade) * 0.1);
 
-        return output;
+        BigDecimal asBigDecimal = new BigDecimal(Double.toString(output));
+        return asBigDecimal.round(new MathContext(3, RoundingMode.HALF_UP)).doubleValue();
     }
 
     public String getSemesterAsString() {
