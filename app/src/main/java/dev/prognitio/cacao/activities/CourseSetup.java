@@ -55,6 +55,10 @@ public class CourseSetup extends AppCompatActivity {
 
         if (extras != null) {
             String toEdit = extras.getString("edit_target");
+            if (toEdit != null && toEdit.contains("course")) {
+                //override functionality to only edit the specified course.
+                System.out.println(toEdit);
+            }
             boolean shouldOverrideFinishSetupButton = extras.getBoolean("override_button");
 
             if (shouldOverrideFinishSetupButton) {
