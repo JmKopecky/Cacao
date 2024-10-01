@@ -78,19 +78,17 @@ public class CourseDisplayActivity extends AppCompatActivity {
         float density = context.getResources().getDisplayMetrics().density; //get pixel density for properly sizing added elements
 
         for (Course course : courses) {
+            //TODO make the edit menu betterer.
+            LinearLayout container = new LinearLayout(this);
+            LinearLayout.LayoutParams containerLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (100 * density));
+            container.setLayoutParams(containerLayout);
+            ViewGroup.LayoutParams wrapContentParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            container.setOrientation(LinearLayout.HORIZONTAL);
 
-            ConstraintLayout constraintLayout = new ConstraintLayout(this);
-            ConstraintLayout.LayoutParams constraintLayoutParams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (100 * density));
-            constraintLayout.setLayoutParams(constraintLayoutParams);
-            ConstraintLayout.LayoutParams wrapContentParams = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (100 * density));
-            wrapContentParams.width = (int) (100 * density);
-            wrapContentParams.height = (int) (100 * density);
-            wrapContentParams.horizontalBias = 0.99f;
-
-            constraintLayoutParams.setMargins((int) (24 * density), (int) (8 * density), (int) (24 * density), (int) (8 * density));
+            containerLayout.setMargins((int) (24 * density), (int) (8 * density), (int) (24 * density), (int) (8 * density));
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+                    LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
             );
 
             params.setMargins((int) (2 * density), (int) (2 * density), (int) (2 * density), (int) (2 * density));
@@ -102,8 +100,9 @@ public class CourseDisplayActivity extends AppCompatActivity {
             layout.setOrientation(LinearLayout.VERTICAL);
 
             //format tile
-            constraintLayout.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
-            constraintLayout.setBackgroundColor(getColor(R.color.secondary_background));
+            container.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
+            container.setBackgroundColor(getColor(R.color.secondary_background));
+            container.setId(ViewGroup.generateViewId());
 
             //add things to the tile
             TextView courseName = new TextView(context);
@@ -130,11 +129,9 @@ public class CourseDisplayActivity extends AppCompatActivity {
             semester.setPadding(10, 10, 10, 10);
             layout.addView(semester);
 
-            ConstraintSet constraintSet = new ConstraintSet();
-            constraintSet.clone(constraintLayout);
-
 
             ImageButton editButton = new ImageButton(context);editButton.setImageResource(R.drawable.baseline_edit_24);
+            editButton.setAdjustViewBounds(true);
             editButton.setId(ViewGroup.generateViewId());
             editButton.setLayoutParams(wrapContentParams);
             editButton.setBackgroundColor(getColor(R.color.transparent));
@@ -144,23 +141,15 @@ public class CourseDisplayActivity extends AppCompatActivity {
                 startActivity(switchActivityIntent);
             });
 
-            constraintLayout.addView(editButton);
-            constraintLayout.addView(layout);
+            container.addView(editButton);
 
-            constraintSet.connect(layout.getId(), ConstraintSet.TOP, constraintLayout.getId(), ConstraintSet.TOP, 0);
-            constraintSet.connect(layout.getId(), ConstraintSet.BOTTOM, constraintLayout.getId(), ConstraintSet.BOTTOM, 0);
-            constraintSet.connect(layout.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
-
-            //constraintSet.connect(editButton.getId(), ConstraintSet.TOP, constraintLayout.getId(), ConstraintSet.TOP, 0);
-            //constraintSet.connect(editButton.getId(), ConstraintSet.BOTTOM, constraintLayout.getId(), ConstraintSet.BOTTOM, 0);
-            //constraintSet.connect(editButton.getId(), ConstraintSet.RIGHT, constraintLayout.getId(), ConstraintSet.RIGHT, 0);
-            //constraintSet.connect(editButton.getId(), ConstraintSet.LEFT, constraintLayout.getId(), ConstraintSet.LEFT, 0);
-            System.out.println("ID: " + editButton.getId());
-            //constraintSet.setHorizontalBias(editButton.getId(), 0.99f);
-            constraintSet.applyTo(constraintLayout);
+            layout.setId(ViewGroup.generateViewId());
 
 
-            scrollarea.addView(constraintLayout);
+            container.addView(layout);
+
+
+            scrollarea.addView(container);
         }
 
 
