@@ -42,6 +42,9 @@ public class PreferencesSelection extends AppCompatActivity {
         MiscellaneousFactsCurator.populateFactOption();
         for (Map.Entry<String,String> entry : MiscellaneousFactsCurator.factOption.entrySet()) {
             String feedOption = entry.getKey();
+            if (feedOption.contains("_")) {
+                feedOption = feedOption.split("_")[1];
+            }
             CheckedTextView toAdd = new CheckedTextView(context);
             toAdd.setText(feedOption);
             toAdd.setTextSize(20);

@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -31,6 +32,7 @@ public class MiscellaneousFactsCurator {
         if (!factOption.containsKey("Programming Jokes")) {
             factOption.put("Programming Jokes", "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=txt");
         }
+        populateHardCodedFacts();
     }
 
     public static HashMap<String, String> curateFeedTile(Context context, SharedPreferences sharedPref) throws IOException {
@@ -67,10 +69,24 @@ public class MiscellaneousFactsCurator {
 
 
         String body = "";
-        body += retrieveData(value, key);
+        System.out.println("VALUE: " + value + " KEY: " + key);
+        if (key.contains("_")) {
+            body += parseHardCodedString(value);
+        } else {
+            body += retrieveData(value, key);
+        }
         map.put("body", body);
 
         return map;
+    }
+
+
+    public static String parseHardCodedString(String value) {
+        ArrayList<String> splitStrings = new ArrayList<>(Arrays.asList(value.split(";")));
+        splitStrings.replaceAll(String::trim);
+        System.out.println(splitStrings);
+        System.out.println((int) (Math.random() * splitStrings.size()));
+        return splitStrings.get((int) (Math.random() * splitStrings.size()));
     }
 
 
@@ -182,4 +198,14 @@ public class MiscellaneousFactsCurator {
         }
         return output;
     }
+
+
+
+    public static void populateHardCodedFacts() {
+        if (!factOption.containsKey("hardcoded_test")) {
+            factOption.put("hardcoded_test", "hi;my;name;is;bob");
+        }
+    }
+
+
 }
