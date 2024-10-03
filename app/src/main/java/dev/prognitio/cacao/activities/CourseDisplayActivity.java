@@ -2,15 +2,19 @@ package dev.prognitio.cacao.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -74,24 +78,34 @@ public class CourseDisplayActivity extends AppCompatActivity {
         float density = context.getResources().getDisplayMetrics().density; //get pixel density for properly sizing added elements
 
         for (Course course : courses) {
+            LinearLayout container = new LinearLayout(this);
+            LinearLayout.LayoutParams containerLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (100 * density));
+            container.setLayoutParams(containerLayout);
+            ViewGroup.LayoutParams wrapContentParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            container.setOrientation(LinearLayout.HORIZONTAL);
+
+            containerLayout.setMargins((int) (24 * density), (int) (8 * density), (int) (24 * density), (int) (8 * density));
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
+                    LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
             );
 
-            params.setMargins((int) (24 * density), (int) (8 * density), (int) (24 * density), (int) (8 * density));
+            params.setMargins((int) (2 * density), (int) (2 * density), (int) (2 * density), (int) (2 * density));
+
 
             LinearLayout layout = new LinearLayout(context);
+            layout.setId(ViewGroup.generateViewId());
             layout.setLayoutParams(params);
             layout.setOrientation(LinearLayout.VERTICAL);
 
             //format tile
-            layout.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
-            layout.setBackgroundColor(getColor(R.color.secondary_background));
+            container.setBackground(AppCompatResources.getDrawable(context, R.drawable.rounded_button));
+            container.setBackgroundColor(getColor(R.color.secondary_background));
+            container.setId(ViewGroup.generateViewId());
 
             //add things to the tile
             TextView courseName = new TextView(context);
-            courseName.setText(course.courseName + " | Teacher = " + course.teacher);
+            courseName.setText(course.courseName);
             courseName.setTextSize(20);
             courseName.setTextColor(getColor(R.color.text_color));
             courseName.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
@@ -114,7 +128,27 @@ public class CourseDisplayActivity extends AppCompatActivity {
             semester.setPadding(10, 10, 10, 10);
             layout.addView(semester);
 
-            scrollarea.addView(layout);
+
+            ImageButton editButton = new ImageButton(context);editButton.setImageResource(R.drawable.baseline_edit_24);
+            editButton.setAdjustViewBounds(true);
+            editButton.setId(ViewGroup.generateViewId());
+            editButton.setLayoutParams(wrapContentParams);
+            editButton.setBackgroundColor(getColor(R.color.transparent));
+            editButton.setOnClickListener(view -> {
+                Intent switchActivityIntent = new Intent(context, CourseSetup.class);
+                switchActivityIntent.putExtra("edit_target", "course_" + (courses.indexOf(course) + 1));
+                startActivity(switchActivityIntent);
+            });
+
+            container.addView(editButton);
+
+            layout.setId(ViewGroup.generateViewId());
+
+
+            container.addView(layout);
+
+
+            scrollarea.addView(container);
         }
 
 

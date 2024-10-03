@@ -55,6 +55,61 @@ public class CourseSetup extends AppCompatActivity {
 
         if (extras != null) {
             String toEdit = extras.getString("edit_target");
+            if (toEdit != null && toEdit.contains("course")) {
+                System.out.println(toEdit);
+                int cid = Integer.parseInt(toEdit.split("_")[1]);
+                Course course = courses.get(cid-1);
+                courseNameInput.setText(course.courseName);
+                courseSemesterInput.setText("" + course.semester);
+                courseGPAInput.setText("" + course.GPA);
+                courseGradeInput.setText("" + course.grade);
+                finalizeCourseDataButton.setVisibility(View.GONE);
+                addCourseButton.setVisibility(View.GONE);
+                Button finishButton = findViewById(R.id.finishSetupButton);
+                finishButton.setText("Edit");
+                finishButton.setOnClickListener(view -> {
+                    String courseName = courseNameInput.getText().toString();
+                    int courseSemester = -1;
+                    double courseGPA = -1;
+                    int courseGrade = -1;
+                    boolean noFormattingErrors = true;
+                    int targetId = cid;
+
+
+                    try {
+                        courseSemester = Integer.parseInt(courseSemesterInput.getText().toString());
+                    } catch (Exception e) {
+                        courseSemesterInput.setTextColor(getResources().getColor(R.color.red));
+                        noFormattingErrors = false;
+                    }
+                    try {
+                        courseGPA = Double.parseDouble(courseGPAInput.getText().toString());
+                    } catch (Exception e) {
+                        courseGPAInput.setTextColor(getResources().getColor(R.color.red));
+                        noFormattingErrors = false;
+                    }
+                    try {
+                        courseGrade = Integer.parseInt(courseGradeInput.getText().toString());
+                    } catch (Exception e) {
+                        courseGradeInput.setTextColor(getResources().getColor(R.color.red));
+                        noFormattingErrors = false;
+                    }
+
+                    if (noFormattingErrors) {
+                        Course toAdd = new Course(courseName, null, courseSemester, courseGPA, courseGrade);
+
+                        SharedPreferences.Editor editor = sharedPref.edit();
+
+                        String asString = toAdd.toString();
+                        editor.putString("course_" + targetId, asString);
+
+                        editor.apply();
+
+                        Intent switchActivityIntent = new Intent(context, CourseDisplayActivity.class);
+                        startActivity(switchActivityIntent);
+                    }
+                });
+            }
             boolean shouldOverrideFinishSetupButton = extras.getBoolean("override_button");
 
             if (shouldOverrideFinishSetupButton) {
