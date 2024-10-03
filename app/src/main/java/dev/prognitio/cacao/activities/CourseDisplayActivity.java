@@ -78,7 +78,6 @@ public class CourseDisplayActivity extends AppCompatActivity {
         float density = context.getResources().getDisplayMetrics().density; //get pixel density for properly sizing added elements
 
         for (Course course : courses) {
-            //TODO make the edit menu betterer.
             LinearLayout container = new LinearLayout(this);
             LinearLayout.LayoutParams containerLayout = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (100 * density));
             container.setLayoutParams(containerLayout);
