@@ -37,7 +37,7 @@ public class Course {
         output = GPA - ((100 - grade) * 0.1);
 
         BigDecimal asBigDecimal = new BigDecimal(Double.toString(output));
-        return asBigDecimal.round(new MathContext(3, RoundingMode.HALF_UP)).doubleValue();
+        return Math.max(asBigDecimal.round(new MathContext(3, RoundingMode.HALF_UP)).doubleValue(), 0);
     }
 
     public String getSemesterAsString() {
