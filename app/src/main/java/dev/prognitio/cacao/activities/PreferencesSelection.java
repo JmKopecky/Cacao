@@ -76,6 +76,7 @@ public class PreferencesSelection extends AppCompatActivity {
             for (int i = 0; i < layout.getChildCount(); i++) {
                 CheckedTextView element = (CheckedTextView) layout.getChildAt(i);
                 String key = "preferences_" + element.getText().toString();
+                System.out.println(key + " " + element.isChecked());
                 Logger.log(key + " " + element.isChecked(), LogType.DEBUG, null);
                 editor.putBoolean(key, element.isChecked());
             }

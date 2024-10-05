@@ -44,10 +44,18 @@ public class MiscellaneousFactsCurator {
 
         ArrayList<String> selected = new ArrayList<>();
         for (Map.Entry<String, String> entry : factOption.entrySet()) {
-            if (sharedPref.getBoolean("preferences_" + entry.getKey(), false)) {
-                selected.add(entry.getKey());
+            if (entry.getKey().contains("_")) {
+                if (sharedPref.getBoolean("preferences_" + entry.getKey().split("_")[1], false)) {
+                    selected.add(entry.getKey());
+                }
+            } else {
+                if (sharedPref.getBoolean("preferences_" + entry.getKey(), false)) {
+                    selected.add(entry.getKey());
+                }
             }
         }
+
+        System.out.println(selected);
 
         int optionSpaceSize = selected.size();
         int targetIndex = (int) (random.nextDouble() * optionSpaceSize);
@@ -65,7 +73,7 @@ public class MiscellaneousFactsCurator {
             index++;
         }
 
-        map.put("title", key);
+        map.put("title", (key.contains("_")) ? key.split("_")[1] : key);
 
 
         String body = "";
@@ -82,6 +90,7 @@ public class MiscellaneousFactsCurator {
 
 
     public static String parseHardCodedString(String value) {
+        System.out.println("TARGET: " + value);
         ArrayList<String> splitStrings = new ArrayList<>(Arrays.asList(value.split(";")));
         splitStrings.replaceAll(String::trim);
         System.out.println(splitStrings);
@@ -202,8 +211,8 @@ public class MiscellaneousFactsCurator {
 
 
     public static void populateHardCodedFacts() {
-        if (!factOption.containsKey("hardcoded_test")) {
-            factOption.put("hardcoded_test", "hi;my;name;is;bob");
+        if (!factOption.containsKey("hardcoded_test")) { //note: should be prefixed with hardcoded_NAME, with NAME being replaced with a unique identifier
+            factOption.put("hardcoded_test", "hi;my;name;is;bob"); //before you ask, no the hardcoded part wont be shown to the user. It just is important so that things get parsed properly.
         }
     }
 
