@@ -123,12 +123,12 @@ public class CalendarActivity extends AppCompatActivity {
                 LinearLayout mediumBar = new LinearLayout(context);
                 mediumBar.setLayoutParams(paramsTopBar);
                 mediumBar.setOrientation(LinearLayout.HORIZONTAL);
-                mediumBar.setBackgroundColor(getColor(R.color.main_background));
+                mediumBar.setBackgroundColor(getColor(R.color.secondary_background));
 
                 LinearLayout bottomBar = new LinearLayout(context);
                 bottomBar.setLayoutParams(paramsTopBar);
                 bottomBar.setOrientation(LinearLayout.HORIZONTAL);
-                bottomBar.setBackgroundColor(getColor(R.color.main_background));
+                bottomBar.setBackgroundColor(getColor(R.color.secondary_background));
 
                 TextView title = new TextView(context);title.setText(assignment.getTitle());
                 title.setLayoutParams(buttonWidth);
