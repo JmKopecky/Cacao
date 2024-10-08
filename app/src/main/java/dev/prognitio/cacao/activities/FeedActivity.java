@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -95,12 +96,13 @@ public class FeedActivity extends AppCompatActivity {
         final float density = context.getResources().getDisplayMetrics().density;
 
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT, (int) (400 * density)
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT
         );
 
-        params.setMargins((int) (48 * density), (int) (48 * density), (int) (48 * density), (int) (48 * density));
+        params.setMargins((int) (20 * density), (int) (20 * density), (int) (20 * density), (int) (20 * density));
 
         LinearLayout layout = new LinearLayout(context);
+        layout.setPadding(0, (int) (50 * density), 0, (int) (50 * density));
         layout.setLayoutParams(params);
         layout.setOrientation(LinearLayout.VERTICAL);
 
@@ -147,11 +149,13 @@ public class FeedActivity extends AppCompatActivity {
                 headerLayout.setBackgroundColor(Color.HSVToColor(hsv));
                 TextView title = new TextView(context);title.setText(note.getTitle());
                 title.setTextSize(22);
+                //title.setGravity(Gravity.CENTER);
                 title.setTextColor(getColor(R.color.text_color));
                 title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
-                title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                title.setPadding((int) (density * 10), 0, (int) (density * 10), (int) (density * 10));
                 TextView content = new TextView(context);content.setText(note.getContent());
                 content.setTextSize(18);
+                //content.setGravity(Gravity.CENTER);
                 content.setTextColor(getColor(R.color.text_color));
                 content.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                 content.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
@@ -177,11 +181,13 @@ public class FeedActivity extends AppCompatActivity {
 
                     TextView title = new TextView(context);title.setText(data.get("title"));
                     title.setTextSize(22);
+                    //title.setGravity(Gravity.CENTER);
                     title.setTextColor(getColor(R.color.text_color));
                     title.setTypeface(Typeface.create("audiowide", Typeface.NORMAL));
-                    title.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
+                    title.setPadding((int) (density * 10), 0, (int) (density * 10), (int) (density * 10));
                     TextView content = new TextView(context);content.setText(data.get("body"));
                     content.setTextSize(18);
+                    //content.setGravity(Gravity.CENTER);
                     content.setTextColor(getColor(R.color.text_color));
                     content.setTypeface(Typeface.create("roboto_mono", Typeface.NORMAL));
                     content.setPadding((int) (density * 10), 0, (int) (density * 10), 0);
