@@ -145,7 +145,7 @@ public class FeedActivity extends AppCompatActivity {
                 //format tile
                 float[] hsv = new float[3];
                 Color.colorToHSV(getColor(R.color.secondary_background), hsv);
-                hsv[2] *= 0.8f;
+                //hsv[2] *= 0.8f;
                 headerLayout.setBackgroundColor(Color.HSVToColor(hsv));
                 TextView title = new TextView(context);title.setText(note.getTitle());
                 title.setTextSize(22);

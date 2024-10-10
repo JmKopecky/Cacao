@@ -22,6 +22,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import dev.prognitio.cacao.Course;
 import dev.prognitio.cacao.R;
@@ -57,6 +58,8 @@ public class CourseDisplayActivity extends AppCompatActivity {
         for (int i = 1; i <= maxId; i++) {
             courses.add(Course.fromString(sharedPref.getString("course_" + i, "")));
         }
+
+        Collections.sort(courses);
 
         double gpa = 0;
         for (Course c : courses) {
