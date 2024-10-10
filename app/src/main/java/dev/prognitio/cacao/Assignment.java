@@ -69,8 +69,18 @@ public class Assignment {
                 new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
                         .setInputData(
                                 new Data.Builder().putString("assignment", assignment.toString()).build())
-                        .setInitialDelay(between, TimeUnit.DAYS)
+                        .setInitialDelay(between - 1, TimeUnit.DAYS)
                         .build();
+
+        if (between * 0.5 > 0) {
+            WorkRequest sendNotifWorker2 =
+                    new OneTimeWorkRequest.Builder(AssignmentNotifWorker.class)
+                            .setInputData(
+                                    new Data.Builder().putString("assignment", assignment.toString()).build())
+                            .setInitialDelay((long) (between * 0.5), TimeUnit.DAYS)
+                            .build();
+            WorkManager.getInstance(context).enqueue(sendNotifWorker2);
+        }
 
         WorkManager.getInstance(context).enqueue(sendNotifWorker);
     }
