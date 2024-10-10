@@ -62,6 +62,18 @@ public class EditNoteActivity extends AppCompatActivity {
             String content = contentField.getText().toString();
             String weight = weightField.getText().toString();
 
+            try {
+                int weightAsInt = Integer.parseInt(weight);
+                if (weightAsInt < 1 || weightAsInt > 10) {
+                    weightField.setTextColor(getResources().getColor(R.color.red));
+                    return;
+                }
+            } catch (Exception e) {
+                weightField.setTextColor(getResources().getColor(R.color.red));
+                return;
+            }
+
+
             Bundle data = getIntent().getExtras();
             String previousNoteTitle = "";
             if (data != null) {

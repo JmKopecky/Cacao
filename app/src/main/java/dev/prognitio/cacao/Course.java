@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-public class Course {
+public class Course implements Comparable<Course> {
 
     public String courseName;
     public String teacher;
@@ -60,5 +60,14 @@ public class Course {
         Gson gson = builder.create();
         output = gson.fromJson(str, Course.class);
         return output;
+    }
+
+    @Override
+    public int compareTo(Course o) {
+        if (this.semester != o.semester) {
+            return o.semester - this.semester; //semester in descending order
+        } else {
+            return 0; //do nothing to prior order
+        }
     }
 }

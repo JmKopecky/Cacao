@@ -11,12 +11,13 @@
     <ScrollView
         android:id="@+id/preferencesscrollarea"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="400dp"
         android:layout_weight="0.7"
-        app:layout_constraintBottom_toTopOf="@+id/finishSetupButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_course_data_text">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32999998">
 
         <LinearLayout
             android:id="@+id/preferencesscrolllayout"
@@ -38,13 +39,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65999997" />
+        app:layout_constraintTop_toBottomOf="@+id/preferencesscrollarea"
+        app:layout_constraintVertical_bias="0.120000005" />
 
     <TextView
         android:id="@+id/enter_course_data_text"
         android:layout_width="358dp"
-        android:layout_height="76dp"
+        android:layout_height="100dp"
         android:layout_marginTop="6dp"
         android:fontFamily="@font/audiowide"
         android:text="Choose 3 or More Interests"
@@ -52,10 +53,12 @@
         android:textColor="@color/text_color"
         android:textSize="34sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/preferencesscrollarea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView2"

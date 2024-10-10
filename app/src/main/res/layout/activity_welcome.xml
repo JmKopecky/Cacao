@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/roboto_mono"
-        android:text="Your tool for every scholastic need!"
+        android:text="Your Tool for Every Scholastic Need!"
         android:textAlignment="center"
         android:textColor="@color/text_color"
         android:textSize="24sp"
@@ -70,18 +70,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finishSetupButton"
-        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/untitled_design__3_" />
 
     <Button
         android:id="@+id/finishSetupButton"
         android:layout_width="284dp"
         android:layout_height="78dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="@color/secondary_background"
         android:fontFamily="@font/roboto_mono"
         android:text="Continue"
         android:textSize="24sp"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeSloganText" />
