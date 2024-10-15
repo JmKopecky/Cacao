@@ -70,7 +70,7 @@ public class CourseDisplayActivity extends AppCompatActivity {
         }
         gpa /= courses.size();
         BigDecimal asBigDecimal = new BigDecimal(Double.toString(gpa));
-        TextView gpaText = findViewById(R.id.gpa_text);gpaText.setText("GPA: " + asBigDecimal.round(new MathContext(3, RoundingMode.HALF_UP)).doubleValue());
+        TextView gpaText = findViewById(R.id.gpa_text);gpaText.setText("GPA: " + asBigDecimal.round(new MathContext(4, RoundingMode.HALF_UP)).doubleValue());
 
         Button addCourseButton = findViewById(R.id.editcoursedatabutton);
         addCourseButton.setOnClickListener(view -> {

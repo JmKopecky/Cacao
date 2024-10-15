@@ -6,6 +6,3 @@ Contributors:
 Joseph Kopecky
 Aayush Koora
 Khyati Singh
-
-TODO: 
-* add edit button to courses

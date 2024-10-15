@@ -37,7 +37,7 @@ public class Course implements Comparable<Course> {
         output = GPA - ((100 - grade) * 0.1);
 
         BigDecimal asBigDecimal = new BigDecimal(Double.toString(output));
-        return Math.max(asBigDecimal.round(new MathContext(3, RoundingMode.HALF_UP)).doubleValue(), 0);
+        return Math.max(asBigDecimal.round(new MathContext(4, RoundingMode.HALF_UP)).doubleValue(), 0);
     }
 
     public String getSemesterAsString() {
