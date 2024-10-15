@@ -53,10 +53,13 @@ public class CourseDisplayActivity extends AppCompatActivity {
 
         ArrayList<Course> courses = new ArrayList<Course>();
         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usercourses_key), Context.MODE_PRIVATE);
-        int maxId = sharedPref.getInt("course_maxid", -1);
+        int maxId = Integer.parseInt(String.valueOf(sharedPref.getInt("course_maxid", -1)));
 
         for (int i = 1; i <= maxId; i++) {
-            courses.add(Course.fromString(sharedPref.getString("course_" + i, "")));
+            String toAdd = sharedPref.getString("course_" + i, "");
+            if (!toAdd.isEmpty()) {
+                courses.add(Course.fromString(toAdd));
+            }
         }
 
         Collections.sort(courses);
@@ -139,7 +142,7 @@ public class CourseDisplayActivity extends AppCompatActivity {
             editButton.setBackgroundColor(getColor(R.color.transparent));
             editButton.setOnClickListener(view -> {
                 Intent switchActivityIntent = new Intent(context, CourseSetup.class);
-                switchActivityIntent.putExtra("edit_target", "course_" + (courses.indexOf(course) + 1));
+                switchActivityIntent.putExtra("edit_target", course.toString()); //todo this index does not match the stored index, resulting in problems with deletion.
                 startActivity(switchActivityIntent);
             });
 

@@ -9,6 +9,21 @@
     tools:context=".activities.CourseSetup">
 
     <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_rounded_test"
+        android:backgroundTint="@color/secondary_background"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Delete Course"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finishSetupButton" />
+
+    <Button
         android:id="@+id/finishSetupButton"
         android:layout_width="284dp"
         android:layout_height="78dp"
