@@ -40,7 +40,10 @@ public class CourseSetup extends AppCompatActivity {
         int maxId = sharedPref.getInt("course_maxid", -1);
         if (maxId > -1) {
             for (int i = 1; i <= maxId; i++) {
-                courses.add(Course.fromString(sharedPref.getString("course_" + i, "")));
+                String toAdd = sharedPref.getString("course_" + i, "");
+                if (!toAdd.isEmpty()) {
+                    courses.add(Course.fromString(toAdd));
+                }
             }
         }
 
@@ -57,14 +60,42 @@ public class CourseSetup extends AppCompatActivity {
             String toEdit = extras.getString("edit_target");
             if (toEdit != null && toEdit.contains("course")) {
                 System.out.println(toEdit);
-                int cid = Integer.parseInt(toEdit.split("_")[1]);
-                Course course = courses.get(cid-1);
+                Course course = Course.fromString(toEdit);
+                int cid = -1;
+                for (int j = 1; j <= maxId; j++) {
+                    Course possible = Course.fromString(sharedPref.getString("course_" + j, ""));
+                    if (course.courseName.equals(possible.courseName) && course.semester == possible.semester) {
+                        cid = j;
+                        break;
+                    }
+                }
+                final int target = cid;
+
                 courseNameInput.setText(course.courseName);
                 courseSemesterInput.setText("" + course.semester);
                 courseGPAInput.setText("" + course.GPA);
                 courseGradeInput.setText("" + course.grade);
                 finalizeCourseDataButton.setVisibility(View.GONE);
                 addCourseButton.setVisibility(View.GONE);
+
+                Button deleteButton = findViewById(R.id.deleteButton);
+                deleteButton.setVisibility(View.VISIBLE);
+                deleteButton.setOnClickListener(view -> {
+                    System.out.println(target);
+                    System.out.println(sharedPref.getString("course" + target, "oops"));
+                    SharedPreferences.Editor delete = sharedPref.edit();
+                    delete.remove("course_" + target);
+                    for (int i = target; i < maxId; i++) { //shift all later elements forward
+                        delete.putString("course_" + i, sharedPref.getString("course_" + (i + 1), ""));
+                    }
+                    delete.remove("course_" + maxId);
+                    delete.putInt("course_maxid", maxId - 1);
+                    delete.apply();
+                    Intent switchActivityIntent = new Intent(context, CourseDisplayActivity.class);
+                    startActivity(switchActivityIntent);
+
+                });
+
                 Button finishButton = findViewById(R.id.finishSetupButton);
                 finishButton.setText("Edit");
                 finishButton.setOnClickListener(view -> {
@@ -73,7 +104,7 @@ public class CourseSetup extends AppCompatActivity {
                     double courseGPA = -1;
                     int courseGrade = -1;
                     boolean noFormattingErrors = true;
-                    int targetId = cid;
+                    int targetId = target;
 
 
                     try {
