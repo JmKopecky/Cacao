@@ -20,7 +20,7 @@ import dev.prognitio.cacao.R;
  * Use the {@link change_name#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class change_name extends Fragment {
+public class change_feed extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +31,7 @@ public class change_name extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public change_name() {
+    public change_feed() {
         // Required empty public constructor
     }
 
@@ -44,8 +44,8 @@ public class change_name extends Fragment {
      * @return A new instance of fragment change_name.
      */
     // TODO: Rename and change types and number of parameters
-    public static change_name newInstance(String param1, String param2) {
-        change_name fragment = new change_name();
+    public static change_feed newInstance(String param1, String param2) {
+        change_feed fragment = new change_feed();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,19 +67,19 @@ public class change_name extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_change_name, container, false);
+        View view = inflater.inflate(R.layout.fragment_change_feed, container, false);
         Context context = view.getContext();
-        Button ConfirmName = view.findViewById(R.id.confirm_blue);
-        EditText NameText = view.findViewById(R.id.input_name);
-        TextView textContainer = getActivity().findViewById(R.id.name_text);
+        Button confirm = view.findViewById(R.id.confirm_blue);
+        EditText feedText = view.findViewById(R.id.input_feed);
+        //TextView textContainer = getActivity().findViewById(R.id.);
 
-        ConfirmName.setOnClickListener(v -> {
+        confirm.setOnClickListener(v -> {
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.userinfo_key), Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
-            String name = NameText.getText().toString();
-            editor.putString("usersupplied_name", name);
+            String name = feedText.getText().toString();
+            editor.putString("usersupplied_name", name); //todo add a configurable ratio of notes to feed tiles.
             editor.apply();
-            textContainer.setText("" + sharedPref.getString("usersupplied_name", "no username"));
+            //textContainer.setText("" + sharedPref.getString("usersupplied_name", "no username"));
         });
 
 

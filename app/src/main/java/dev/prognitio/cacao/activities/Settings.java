@@ -17,7 +17,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import dev.prognitio.cacao.R;
+import dev.prognitio.cacao.fragments.change_email;
+import dev.prognitio.cacao.fragments.change_feed;
 import dev.prognitio.cacao.fragments.change_name;
+import dev.prognitio.cacao.fragments.change_username;
 import dev.prognitio.cacao.log.LogType;
 import dev.prognitio.cacao.log.Logger;
 
@@ -66,7 +69,7 @@ public class Settings extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.username_fragment, change_name.class, null)
+                        .replace(R.id.username_fragment, change_username.class, null)
                         .setReorderingAllowed(true)
                         .addToBackStack("username_fragment")
                         .commit();
@@ -78,25 +81,25 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
-
+                //todo finish making fragments work.
                 fragmentManager.beginTransaction()
-                        .replace(R.id.email_fragment, change_name.class, null)
+                        .replace(R.id.email_fragment, change_email.class, null)
                         .setReorderingAllowed(true)
                         .addToBackStack("email_fragment")
                         .commit();
             }
         });
 
-        Button button_color = findViewById(R.id.app_color_button);
-        button_color.setOnClickListener(new View.OnClickListener() {
+        Button button_feed = findViewById(R.id.change_probability);
+        button_feed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
                 fragmentManager.beginTransaction()
-                        .replace(R.id.color_fragment, change_name.class, null)
+                        .replace(R.id.feed_fragment, change_feed.class, null)
                         .setReorderingAllowed(true)
-                        .addToBackStack("color_fragment")
+                        .addToBackStack("feed_fragment")
                         .commit();
             }
         });
