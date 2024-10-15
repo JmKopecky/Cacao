@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".change_name">
+    tools:context=".change_username">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="410dp"
-        android:layout_height="320dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/secondary_background"
         android:textColor="#F10000"
         android:textSize="24sp"
@@ -21,27 +21,30 @@
         tools:layout_editor_absoluteY="-2dp" />
 
     <EditText
-        android:id="@+id/input_name"
+        android:id="@+id/input_username"
         android:layout_width="299dp"
         android:layout_height="49dp"
         android:ems="10"
+        android:hint="Input Username Change"
         android:inputType="text"
-        android:text="Input Username Change"
         android:textColor="@color/text_color"
-        app:layout_constraintBottom_toTopOf="@+id/confirm_blue"
+        android:textColorHint="@color/secondary_color"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.23" />
+        app:layout_constraintVertical_bias="0.32999998" />
 
     <Button
         android:id="@+id/confirm_blue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
+        android:background="@drawable/button_rounded_test"
+        android:backgroundTint="@color/secondary_background"
         android:text="Confirm"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_username" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
