@@ -1,19 +1,13 @@
 package dev.prognitio.cacao.activities;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import dev.prognitio.cacao.R;
@@ -21,8 +15,6 @@ import dev.prognitio.cacao.fragments.change_email;
 import dev.prognitio.cacao.fragments.change_feed;
 import dev.prognitio.cacao.fragments.change_name;
 import dev.prognitio.cacao.fragments.change_username;
-import dev.prognitio.cacao.log.LogType;
-import dev.prognitio.cacao.log.Logger;
 
 public class Settings extends AppCompatActivity {
 
@@ -40,11 +32,11 @@ public class Settings extends AppCompatActivity {
         text_name.setText(name);
 
         String username = sharedPreferences.getString("usersupplied_username", "");
-        TextView text_username = findViewById(R.id.username_text);
+        TextView text_username = findViewById(R.id.feed_text);
         text_username.setText(username);
 
         String email = sharedPreferences.getString("usersupplied_email", "");
-        TextView text_email = findViewById(R.id.email_text);
+        TextView text_email = findViewById(R.id.feed_text);
         text_email.setText(email);
 
 
