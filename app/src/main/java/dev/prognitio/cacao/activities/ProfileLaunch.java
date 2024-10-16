@@ -53,6 +53,7 @@ public class ProfileLaunch extends AppCompatActivity {
                 editor.putString("usersupplied_name", nameSubmission);
                 editor.putString("usersupplied_username", usernameSubmission);
                 editor.putString("usersupplied_email", emailSubmission);
+                editor.putFloat("usersupplied_feed", 0.5f);
 
                 editor.apply();
 
