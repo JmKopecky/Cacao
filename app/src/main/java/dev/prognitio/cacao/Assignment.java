@@ -1,16 +1,11 @@
 package dev.prognitio.cacao;
 
-import static java.time.temporal.ChronoUnit.HOURS;
-
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.work.Data;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
-import androidx.work.Worker;
-import androidx.work.WorkerParameters;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -20,9 +15,6 @@ import org.jetbrains.annotations.Nullable;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class Assignment {

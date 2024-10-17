@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -16,11 +15,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.Executors;
 
@@ -112,14 +109,17 @@ public class FeedActivity extends AppCompatActivity {
 
 
         Random random = new Random();
-        Double randomN = random.nextDouble();
+        double randomN = random.nextDouble();
 
 
         SharedPreferences checkNotes = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
         boolean hasNotes = checkNotes.contains("noteregistry");
 
+        SharedPreferences getFeedWeight = context.getSharedPreferences(getString(R.string.userinfo_key), Context.MODE_PRIVATE);
+        float feedWeight = getFeedWeight.getFloat("usersupplied_feed", 0.5f);
 
-        if (randomN > 0.5 && hasNotes) {
+
+        if (randomN > feedWeight && hasNotes) {
             //show notes
             SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.usernotes_key), Context.MODE_PRIVATE);
             ArrayList<Notes> notesList = new ArrayList<>();
