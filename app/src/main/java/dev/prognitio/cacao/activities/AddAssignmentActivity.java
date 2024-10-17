@@ -1,7 +1,5 @@
 package dev.prognitio.cacao.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.time.LocalDate;
-import java.util.Date;
 
 import dev.prognitio.cacao.Assignment;
 import dev.prognitio.cacao.R;

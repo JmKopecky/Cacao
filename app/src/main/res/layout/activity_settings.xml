@@ -9,156 +9,132 @@
     android:orientation="vertical"
     tools:context=".activities.WelcomeActivity$settings">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.5">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/name_setting"
-                android:layout_width="match_parent"
-                android:layout_height="76dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/feed_text"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Display Name"
-                    android:textAlignment="center"
-                    android:textColor="@color/text_color"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/name_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/secondary_background"
-                    android:text="Change Name"
-                    android:textColor="@color/text_color" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/username_setting"
-                android:layout_width="match_parent"
-                android:layout_height="92dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/feed_text"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Display Username"
-                    android:textAlignment="center"
-                    android:textColor="@color/text_color"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/username_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/secondary_background"
-                    android:text="Change Username"
-                    android:textColor="@color/text_color" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/email_setting"
-                android:layout_width="match_parent"
-                android:layout_height="77dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/feed_text"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Display Email"
-                    android:textAlignment="center"
-                    android:textColor="@color/text_color"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/email_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/secondary_background"
-                    android:text="Change Email"
-                    android:textColor="@color/text_color" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/other_settings"
-                android:layout_width="match_parent"
-                android:layout_height="91dp"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/feed_text"
-                    android:layout_width="145dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="text"
-                    android:text="Display Feed"
-                    android:textAlignment="center"
-                    android:textColor="@color/text_color"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/change_probability"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button"
-                    android:backgroundTint="@color/secondary_background"
-                    android:text="Change Feed"
-                    android:textColor="@color/text_color" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.4"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainerView4"
-            android:name="dev.prognitio.cacao.fragments.change_name"
+        <LinearLayout
+            android:id="@+id/name_setting"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/secondary_background" />
+            android:layout_height="76dp"
+            android:layout_marginVertical="50dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/editTextText2"
+            <EditText
+                android:id="@+id/name_text"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Display Name"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/name_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/secondary_background"
+                android:text="Change Name"
+                android:textColor="@color/text_color" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/username_setting"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Name" />
+            android:layout_height="92dp"
+            android:layout_marginVertical="50dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/username_text"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Display Username"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/username_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/secondary_background"
+                android:text="Change Username"
+                android:textColor="@color/text_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/email_setting"
+            android:layout_width="match_parent"
+            android:layout_height="77dp"
+            android:layout_marginVertical="50dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/email_text"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Display Email"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/email_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/secondary_background"
+                android:text="Change Email"
+                android:textColor="@color/text_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/other_settings"
+            android:layout_width="match_parent"
+            android:layout_height="91dp"
+            android:layout_marginVertical="50dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/feed_text"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Display Feed"
+                android:textAlignment="center"
+                android:textColor="@color/text_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/change_probability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/secondary_background"
+                android:text="Change Feed"
+                android:textColor="@color/text_color" />
+        </LinearLayout>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -174,6 +150,7 @@
             android:backgroundTint="#00FFFFFF"
             android:scaleX="1.15"
             android:scaleY="1.15"
+            android:tint="@color/accent_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -186,7 +163,6 @@
             android:backgroundTint="#00FFFFFF"
             android:scaleX="1.15"
             android:scaleY="1.15"
-            android:tint="@color/accent_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/home_button"
             app:layout_constraintTop_toTopOf="parent"
